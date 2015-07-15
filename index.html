@@ -150,6 +150,130 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/15/YAWL仿真过程/" itemprop="url">
+                YAWL仿真过程
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-15T15:49:32+08:00" content="2015-07-15">
+            2015-07-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/研究笔记/" itemprop="url" rel="index"><span itemprop="name">研究笔记</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/07/15/YAWL仿真过程/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/15/YAWL仿真过程/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>工具：</p>
+<ul>
+<li>必须：<ol>
+<li>ProM 5.2(6.3功能不明，暂不使用）</li>
+<li>CPN Tools </li>
+<li>ProM import framework（简称PIF）</li>
+</ol>
+</li>
+<li><p>可选：</p>
+<ol>
+<li>YAWL（设计时用）</li>
+</ol>
+<p>YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.<br>YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；<br>ProM把yawl net翻译成petri net，并使用历史数据或者仿真数据进行流程挖掘、分析。<br>CPN Tools导入CPN并进行仿真，生成仿真记录。</p>
+</li>
+</ul>
+<p>仿真过程总体来说是以下几步：</p>
+<ol>
+<li>准备好流程模型、组织模型</li>
+<li>使用ProM的Merge Simulation Models把前两者合并，并转化为HLpetrinet</li>
+<li>使用ProM的Export to CPN Tools 2.0将HLpetrinet转化成CPN，并设置各仿真参数</li>
+<li>使用CPN Tools打开CPN文件，设定case数，跑仿真</li>
+<li>使用PIF把仿真记录转换成mxml文件，使用ProM打开并做分析挖掘。</li>
+<li>调整模型</li>
+</ol>
+<p>下面是具体流程</p>
+<ol>
+<li>准备流程模型和组织模型。<br>注意两者扩展名都是xml.不是导出时的。 yawl specification可以直接改扩展名，载入时选择 newYAWLfile加载就可以，组织模型还没明白。<br><img src="/2015/07/15/YAWL仿真过程/1.png" alt="1"></li>
+<li>将两者加载到ProM里，选择analysis中的Merge Simulation Models，调整参数后生成Merge net。<br><img src="/2015/07/15/YAWL仿真过程/2.png" alt="2"></li>
+<li>选择Conversion中的HLyawlnet to HLpetrinet，生成</li>
+</ol>
+<p><strong>(重点)</strong> 4. 选择Analysis中的Export to CPN Tools 2.0，调整好参数，保存。<br>暂时还不知道其他选项用处，最好全部勾上。</p>
+<p>不要勾选有waiting time的，加载到CPN Tools时有错误，似乎是HLyawlnet转成HLpetrinet过程中会生成新的弧，那些弧缺乏定义。<br><img src="/2015/07/15/YAWL仿真过程/3.png" alt="3"></p>
+<ol>
+<li>使用CPN Tools打开生成的cpn文件，等待syntax check，可能需要数分钟。在检查通过（文件名下划线变成绿色其他全部消失）之前，无法做仿真。<br>*注：关于CPN tools的syntax check可以参考 <a href="http://cpntools.org/documentation/tasks/editing/syntaxchecking" target="_blank" rel="external">此处</a>，当检查不通过时需要调整export时的参数。<br><img src="/2015/07/15/YAWL仿真过程/4.png" alt="4"></li>
+<li>打开simulation面板，选择一种仿真工具进行仿真。<br>这些工具都是以transition为单位推进的，可以通过右键点击设置工具选项来调整仿真次数（步数、时长等）<br><img src="/2015/07/15/YAWL仿真过程/5.png" alt="5"></li>
+<li>仿真完毕后，用PIF设置好导入目录和输出目录，将cpn的日志文件转化为mxml文件。<br>红框两个必须设置，黄框的最好设置成截图那样。<br><img src="/2015/07/15/YAWL仿真过程/6.png" alt="6"></li>
+<li>把mxml文件导入到ProM中，就能愉快地做下一步分析了。<br><img src="/2015/07/15/YAWL仿真过程/7.png" alt="7"></li>
+</ol>
+<p>问题：</p>
+<ol>
+<li>官方教程提到将模型、组织模型、日志文件3者合并在一起再转化，事实上只用前2个。到底是怎样？</li>
+<li>ProM不能加载ybkp文件，那么组织模型那个格式是怎么来的？</li>
+<li>转成HLpetrinet后，似乎丢失了一些弧的信息，使得CPN不能进行带waiting time的仿真。该怎么处理？</li>
+<li>只能靠分析日志，然后人手调整参数吗？好像有点落后</li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/15/书单（在读与已读）持续更新/" itemprop="url">
                 书单（在读与已读）持续更新
               </a>
@@ -465,21 +589,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
