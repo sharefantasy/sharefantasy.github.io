@@ -26,7 +26,7 @@
 
 
 
-  <meta name="keywords" content="YAWL,过程挖掘," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -35,56 +35,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="工具
-必须：
-ProM 5.2(6.3功能不明，暂不使用）
-CPN Tools 
-ProM import framework（简称PIF）
-
-
-可选：
-
-YAWL（设计时用）
-
-YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；ProM把yawl net翻译成petri net，并使用历史数据或者仿">
+<meta name="description" content="一、实验环境
+1.环境工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+
+2.引擎请求： 环境中要求一次工作流服务的过程派发： 接受一个请求生成workitem并指定worklist的过程引擎： 工程环境中运">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YAWL仿真过程">
-<meta property="og:url" content="http://yoursite.com/2015/07/15/YAWL仿真过程/index.html">
+<meta property="og:title" content="模型定义与算法设计">
+<meta property="og:url" content="http://yoursite.com/2016/01/26/模型定义与算法设计/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="工具
-必须：
-ProM 5.2(6.3功能不明，暂不使用）
-CPN Tools 
-ProM import framework（简称PIF）
-
-
-可选：
-
-YAWL（设计时用）
-
-YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；ProM把yawl net翻译成petri net，并使用历史数据或者仿">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/1.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/2.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/3.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/4.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/5.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/6.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/7.png">
-<meta property="og:updated_time" content="2015-07-15T08:38:55.628Z">
+<meta property="og:description" content="一、实验环境
+1.环境工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+
+2.引擎请求： 环境中要求一次工作流服务的过程派发： 接受一个请求生成workitem并指定worklist的过程引擎： 工程环境中运">
+<meta property="og:updated_time" content="2016-01-26T09:53:08.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YAWL仿真过程">
-<meta name="twitter:description" content="工具
-必须：
-ProM 5.2(6.3功能不明，暂不使用）
-CPN Tools 
-ProM import framework（简称PIF）
-
-
-可选：
-
-YAWL（设计时用）
-
-YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；ProM把yawl net翻译成petri net，并使用历史数据或者仿">
+<meta name="twitter:title" content="模型定义与算法设计">
+<meta name="twitter:description" content="一、实验环境
+1.环境工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+
+2.引擎请求： 环境中要求一次工作流服务的过程派发： 接受一个请求生成workitem并指定worklist的过程引擎： 工程环境中运">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -94,7 +60,7 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
   };
 </script>
 
-    <title> YAWL仿真过程 // 飲雲齋 </title>
+    <title> 模型定义与算法设计 // 飲雲齋 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -197,7 +163,7 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
           
           
             
-              YAWL仿真过程
+              模型定义与算法设计
             
           
         </h1>
@@ -206,30 +172,19 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-15T15:49:32+08:00" content="2015-07-15">
-            2015-07-15
+          <time itemprop="dateCreated" datetime="2016-01-26T17:51:44+08:00" content="2016-01-26">
+            2016-01-26
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/研究笔记/" itemprop="url" rel="index"><span itemprop="name">研究笔记</span></a></span>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/07/15/YAWL仿真过程/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/15/YAWL仿真过程/" itemprop="commentsCount"></span>
+              <a href="/2016/01/26/模型定义与算法设计/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/模型定义与算法设计/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -243,79 +198,34 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
       
 
       
-        <span itemprop="articleBody"><h1 id="工具">工具</h1><ul>
-<li>必须：<ol>
-<li>ProM 5.2(6.3功能不明，暂不使用）</li>
-<li>CPN Tools </li>
-<li>ProM import framework（简称PIF）</li>
-</ol>
-</li>
-<li><p>可选：</p>
+        <span itemprop="articleBody"><p>一、实验环境</p>
+<p>1.环境<br>工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素<br>模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述<br>时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+</p>
+<p>2.引擎<br>请求： 环境中要求一次工作流服务的过程<br>派发： 接受一个请求生成workitem并指定worklist的过程<br>引擎： 工程环境中运行的代码，产生派发的工具，可以是工作流引擎，或封装了工作流引擎的VM/容器，模型环境中则是（宿主参数，自身状态-&gt;派发速度）函数，生成引擎需要考虑以下几个因素：（有无排队机制，有无速度限制，有无速度负反馈机制）<br>请求速度： 单个时槽中的请求数量<br>请求总数： 整个时槽轴上的请求数量<br>派发速度： 单个时槽中的派发数量<br>派发总数： 整个时槽轴上的派发数量<br>宿主： 引擎依赖的环境</p>
+<p>二、租户<br>1.限制<br>所有租户都在总周期的0时刻上线并统一在总周期结束后下线，不考虑中途插入，不考虑多层SLA，不考虑SLA renegotiation。违约租户惩罚统一，引擎迁移成本不计。<br>0.1 可能改进：租户插入/早退，更改，惩罚成本差异，迁移成本计入模型。</p>
 <ol>
-<li>YAWL（设计时用）</li>
-</ol>
-<p>YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.<br>YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；<br>ProM把yawl net翻译成petri net，并使用历史数据或者仿真数据进行流程挖掘、分析。<br>CPN Tools导入CPN并进行仿真，生成仿真记录。</p>
+<li><p>时间单位<br>总周期： 集群开始运行到结束的总时间<br>结算周期：租户合约的结算单位周期，所有统计数据的总时间均为一个结算周期，结算周期过后所有数据清零。<br>操作周期：集群调整空间配置的时间，每个操作周期判断并实行负载均衡<br>心跳周期：集群收集统计数据的单位时长</p>
 </li>
-</ul>
-<h1 id="总体流程">总体流程</h1><ol>
-<li>准备好流程模型、组织模型</li>
-<li>使用ProM的Merge Simulation Models把前两者合并，并转化为HLpetrinet</li>
-<li>使用ProM的Export to CPN Tools 2.0将HLpetrinet转化成CPN，并设置各仿真参数</li>
-<li>使用CPN Tools打开CPN文件，设定case数，跑仿真</li>
-<li>使用PIF把仿真记录转换成mxml文件，使用ProM打开并做分析挖掘。</li>
-<li>调整模型</li>
-</ol>
-<a id="more"></a>
-<h1 id="具体流程">具体流程</h1><ol>
-<li><p>准备流程模型和组织模型。<br>注意两者扩展名都是xml.不是导出时的。 yawl specification可以直接改扩展名，载入时选择 newYAWLfile加载就可以，组织模型还没明白。<br><img src="/2015/07/15/YAWL仿真过程/1.png" alt="1"></p>
-</li>
-<li><p>将两者加载到ProM里，选择analysis中的Merge Simulation Models，调整参数后生成Merge net。<br><img src="/2015/07/15/YAWL仿真过程/2.png" alt="2"></p>
-</li>
-<li><p>选择Conversion中的HLyawlnet to HLpetrinet，生成</p>
-</li>
-<li><p>选择Analysis中的Export to CPN Tools 2.0，调整好参数，保存。<strong>(重点)</strong><br>暂时还不知道其他选项用处，最好全部勾上。<br>不要勾选有waiting time的，加载到CPN Tools时有错误，似乎是HLyawlnet转成HLpetrinet过程中会生成新的弧，那些弧缺乏定义。<br><img src="/2015/07/15/YAWL仿真过程/3.png" alt="3"></p>
-</li>
-<li><p>使用CPN Tools打开生成的cpn文件，等待syntax check，可能需要数分钟。在检查通过（文件名下划线变成绿色其他全部消失）之前，无法做仿真。<br>*注：关于CPN tools的syntax check可以参考 <a href="http://cpntools.org/documentation/tasks/editing/syntaxchecking" target="_blank" rel="external">此处</a>，当检查不通过时需要调整export时的参数。<br><img src="/2015/07/15/YAWL仿真过程/4.png" alt="4"></p>
-</li>
-<li><p>打开simulation面板，选择一种仿真工具进行仿真。<br>这些工具都是以transition为单位推进的，可以通过右键点击设置工具选项来调整仿真次数（步数、时长等）<br><img src="/2015/07/15/YAWL仿真过程/5.png" alt="5"></p>
-</li>
-<li><p>仿真完毕后，用PIF设置好导入目录和输出目录，将cpn的日志文件转化为mxml文件。<br>红框两个必须设置，黄框的最好设置成截图那样。<br><img src="/2015/07/15/YAWL仿真过程/6.png" alt="6"></p>
-</li>
-<li><p>把mxml文件导入到ProM中，就能愉快地做下一步分析了。<br><img src="/2015/07/15/YAWL仿真过程/7.png" alt="7"></p>
+<li><p>指标定义<br>违约时长：结算周期中，不满足租户SLO速度的心跳时槽之和<br>单人违约率 = 违约时长 / 结算周期</p>
 </li>
 </ol>
-<h1 id="问题">问题</h1><ol>
-<li>官方教程提到将模型、组织模型、日志文件3者合并在一起再转化，事实上只用前2个。到底是怎样？</li>
-<li>ProM不能加载ybkp文件，那么组织模型那个格式是怎么来的？</li>
-<li>转成HLpetrinet后，似乎丢失了一些弧的信息，使得CPN不能进行带waiting time的仿真。该怎么处理？</li>
-<li>只能靠分析日志，然后人手调整参数吗？好像有点落后</li>
-</ol>
+<p>4.SLA定义<br>SLO速度：结算周期中，约定的最低引擎派发速度<br>最高故障比例：单人违约率的约定最大值</p>
+<p>5.运维过程<br>已违约租户 = 结算周期内，单人违约率已超过最高故障比例的租户<br>集群违约比例 = 已违约租户数 / 总租户数</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/YAWL/" rel="tag">#YAWL</a>
-          
-            <a href="/tags/过程挖掘/" rel="tag">#过程挖掘</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/11/云工作流引擎设计感想与计划/" rel="prev">云工作流引擎设计感想与计划</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/15/书单（在读与已读）持续更新/" rel="next">书单（在读与已读）持续更新</a>
+              <a href="/2016/01/11/云工作流负载均衡器简述/" rel="next">云工作流负载均衡器简述</a>
             
           </div>
         </div>
@@ -341,8 +251,8 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/07/15/YAWL仿真过程/"
-                       data-title="YAWL仿真过程" data-url="http://yoursite.com/2015/07/15/YAWL仿真过程/">
+                  <div class="ds-thread" data-thread-key="2016/01/26/模型定义与算法设计/"
+                       data-title="模型定义与算法设计" data-url="http://yoursite.com/2016/01/26/模型定义与算法设计/">
                   </div>
                 
               </div>
@@ -434,7 +344,7 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总体流程"><span class="nav-number">2.</span> <span class="nav-text">总体流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体流程"><span class="nav-number">3.</span> <span class="nav-text">具体流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">4.</span> <span class="nav-text">问题</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

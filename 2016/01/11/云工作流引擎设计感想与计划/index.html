@@ -26,7 +26,7 @@
 
 
 
-  <meta name="keywords" content="YAWL,过程挖掘," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -35,56 +35,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="工具
-必须：
-ProM 5.2(6.3功能不明，暂不使用）
-CPN Tools 
-ProM import framework（简称PIF）
-
-
-可选：
-
-YAWL（设计时用）
-
-YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；ProM把yawl net翻译成petri net，并使用历史数据或者仿">
+<meta name="description" content="一、概念简介　　工作流：业务过程的部分或整体在计算机应用环境下的自动化。　　云计算：基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。另外云计算是一种按使用量付费的模式，这种模式提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池（资源包括网络、服务器、存储、应用软件、服务），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YAWL仿真过程">
-<meta property="og:url" content="http://yoursite.com/2015/07/15/YAWL仿真过程/index.html">
+<meta property="og:title" content="云工作流引擎设计感想与计划">
+<meta property="og:url" content="http://yoursite.com/2016/01/11/云工作流引擎设计感想与计划/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="工具
-必须：
-ProM 5.2(6.3功能不明，暂不使用）
-CPN Tools 
-ProM import framework（简称PIF）
-
-
-可选：
-
-YAWL（设计时用）
-
-YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；ProM把yawl net翻译成petri net，并使用历史数据或者仿">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/1.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/2.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/3.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/4.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/5.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/6.png">
-<meta property="og:image" content="http://yoursite.com/2015/07/15/YAWL仿真过程/7.png">
-<meta property="og:updated_time" content="2015-07-15T08:38:55.628Z">
+<meta property="og:description" content="一、概念简介　　工作流：业务过程的部分或整体在计算机应用环境下的自动化。　　云计算：基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。另外云计算是一种按使用量付费的模式，这种模式提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池（资源包括网络、服务器、存储、应用软件、服务），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商">
+<meta property="og:updated_time" content="2016-01-11T03:47:32.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YAWL仿真过程">
-<meta name="twitter:description" content="工具
-必须：
-ProM 5.2(6.3功能不明，暂不使用）
-CPN Tools 
-ProM import framework（简称PIF）
-
-
-可选：
-
-YAWL（设计时用）
-
-YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；ProM把yawl net翻译成petri net，并使用历史数据或者仿">
+<meta name="twitter:title" content="云工作流引擎设计感想与计划">
+<meta name="twitter:description" content="一、概念简介　　工作流：业务过程的部分或整体在计算机应用环境下的自动化。　　云计算：基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。另外云计算是一种按使用量付费的模式，这种模式提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池（资源包括网络、服务器、存储、应用软件、服务），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -94,7 +54,7 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
   };
 </script>
 
-    <title> YAWL仿真过程 // 飲雲齋 </title>
+    <title> 云工作流引擎设计感想与计划 // 飲雲齋 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -197,7 +157,7 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
           
           
             
-              YAWL仿真过程
+              云工作流引擎设计感想与计划
             
           
         </h1>
@@ -206,30 +166,19 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-15T15:49:32+08:00" content="2015-07-15">
-            2015-07-15
+          <time itemprop="dateCreated" datetime="2016-01-11T11:31:02+08:00" content="2016-01-11">
+            2016-01-11
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/研究笔记/" itemprop="url" rel="index"><span itemprop="name">研究笔记</span></a></span>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/07/15/YAWL仿真过程/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/15/YAWL仿真过程/" itemprop="commentsCount"></span>
+              <a href="/2016/01/11/云工作流引擎设计感想与计划/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/云工作流引擎设计感想与计划/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -243,79 +192,26 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
       
 
       
-        <span itemprop="articleBody"><h1 id="工具">工具</h1><ul>
-<li>必须：<ol>
-<li>ProM 5.2(6.3功能不明，暂不使用）</li>
-<li>CPN Tools </li>
-<li>ProM import framework（简称PIF）</li>
-</ol>
-</li>
-<li><p>可选：</p>
-<ol>
-<li>YAWL（设计时用）</li>
-</ol>
-<p>YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.<br>YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；<br>ProM把yawl net翻译成petri net，并使用历史数据或者仿真数据进行流程挖掘、分析。<br>CPN Tools导入CPN并进行仿真，生成仿真记录。</p>
-</li>
-</ul>
-<h1 id="总体流程">总体流程</h1><ol>
-<li>准备好流程模型、组织模型</li>
-<li>使用ProM的Merge Simulation Models把前两者合并，并转化为HLpetrinet</li>
-<li>使用ProM的Export to CPN Tools 2.0将HLpetrinet转化成CPN，并设置各仿真参数</li>
-<li>使用CPN Tools打开CPN文件，设定case数，跑仿真</li>
-<li>使用PIF把仿真记录转换成mxml文件，使用ProM打开并做分析挖掘。</li>
-<li>调整模型</li>
-</ol>
-<a id="more"></a>
-<h1 id="具体流程">具体流程</h1><ol>
-<li><p>准备流程模型和组织模型。<br>注意两者扩展名都是xml.不是导出时的。 yawl specification可以直接改扩展名，载入时选择 newYAWLfile加载就可以，组织模型还没明白。<br><img src="/2015/07/15/YAWL仿真过程/1.png" alt="1"></p>
-</li>
-<li><p>将两者加载到ProM里，选择analysis中的Merge Simulation Models，调整参数后生成Merge net。<br><img src="/2015/07/15/YAWL仿真过程/2.png" alt="2"></p>
-</li>
-<li><p>选择Conversion中的HLyawlnet to HLpetrinet，生成</p>
-</li>
-<li><p>选择Analysis中的Export to CPN Tools 2.0，调整好参数，保存。<strong>(重点)</strong><br>暂时还不知道其他选项用处，最好全部勾上。<br>不要勾选有waiting time的，加载到CPN Tools时有错误，似乎是HLyawlnet转成HLpetrinet过程中会生成新的弧，那些弧缺乏定义。<br><img src="/2015/07/15/YAWL仿真过程/3.png" alt="3"></p>
-</li>
-<li><p>使用CPN Tools打开生成的cpn文件，等待syntax check，可能需要数分钟。在检查通过（文件名下划线变成绿色其他全部消失）之前，无法做仿真。<br>*注：关于CPN tools的syntax check可以参考 <a href="http://cpntools.org/documentation/tasks/editing/syntaxchecking" target="_blank" rel="external">此处</a>，当检查不通过时需要调整export时的参数。<br><img src="/2015/07/15/YAWL仿真过程/4.png" alt="4"></p>
-</li>
-<li><p>打开simulation面板，选择一种仿真工具进行仿真。<br>这些工具都是以transition为单位推进的，可以通过右键点击设置工具选项来调整仿真次数（步数、时长等）<br><img src="/2015/07/15/YAWL仿真过程/5.png" alt="5"></p>
-</li>
-<li><p>仿真完毕后，用PIF设置好导入目录和输出目录，将cpn的日志文件转化为mxml文件。<br>红框两个必须设置，黄框的最好设置成截图那样。<br><img src="/2015/07/15/YAWL仿真过程/6.png" alt="6"></p>
-</li>
-<li><p>把mxml文件导入到ProM中，就能愉快地做下一步分析了。<br><img src="/2015/07/15/YAWL仿真过程/7.png" alt="7"></p>
-</li>
-</ol>
-<h1 id="问题">问题</h1><ol>
-<li>官方教程提到将模型、组织模型、日志文件3者合并在一起再转化，事实上只用前2个。到底是怎样？</li>
-<li>ProM不能加载ybkp文件，那么组织模型那个格式是怎么来的？</li>
-<li>转成HLpetrinet后，似乎丢失了一些弧的信息，使得CPN不能进行带waiting time的仿真。该怎么处理？</li>
-<li>只能靠分析日志，然后人手调整参数吗？好像有点落后</li>
-</ol>
+        <span itemprop="articleBody"><h1 id="一、概念简介">一、概念简介</h1><p>　　工作流：业务过程的部分或整体在计算机应用环境下的自动化。<br>　　云计算：基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。另外云计算是一种按使用量付费的模式，这种模式提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池（资源包括网络、服务器、存储、应用软件、服务），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商进行很少的交互。<br>　　云工作流：按照云计算的定义，根据工作流引擎的性能、资源使用量计费，提供多租户、有分级的工作流引擎的PaaS服务。通常铺设在云或网格平台上，以分布式引擎的方式部署提高并行化以及高可用性保障，并以虚拟化技术和接口技术模拟传统集中式业务引擎，另外通过工作流性能统计、预测租户对各种资源的使用量，进行计费。云工作流目的不在于使用分布式系统集中提高性能，而是为用户分摊维护成本。另外，云工作流也有另一种定义，被称为“云之上”工作流，即研究如何通过组合云环境中的服务，构建合理高效可靠的业务流程实践。相对应的本项目被称为“云之中”工作流。“云之上”并非本项目的研究方向。<br><a id="more"></a><br>　　云计算按需服务的基础要求，则是利用SLA（服务水平协议）中的SLO（服务水平目标）进行定义。协议双方在SLA中决定工作流引擎指标中的能力，服务费用、优先级以及惩罚措施。另外服务双方也可能在重议（renegotiation）阶段进行服务变更后再次投放业务。SP（云服务提供商）希望能在更低费用购买到尽可能高的引擎性能，而IP（云资源提供商）则希望尽可能降低运营成本提高收益，提供恰好够用的服务，并避免承担由SLA违约导致的惩罚。因此在此过程中出现需要调和的矛盾。对于以上环境，可以建立一套公平公开公正的工作流量化计费调控机制，既往SP提供服务监测、又为IP提供性能优化和成本控制。<br>　　在IP关注的方面，引擎在PM（物理机）上的分布尤为重要。PM在待机时也会消耗70%于其峰值的电量，因此提高PM的CPU吞吐量，减少活跃的PM数可有效减少运营费用。因此本项目主要关注如何在保证SLA低违约率的情况下通过调度提高PM吞吐量与减少运营费用的工作。<br>　　在实际工作中，工作流引擎指标使用任务派发速度，派发过程为前置任务执行完毕返回引擎到引擎完成现时任务的资源分派的这段过程。派发速度为单位时间内完成派发过程的次数。</p>
+<h1 id="二、项目简述">二、项目简述</h1><p>　　现在要利用YAWL做一个云工作流的管理器</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/YAWL/" rel="tag">#YAWL</a>
-          
-            <a href="/tags/过程挖掘/" rel="tag">#过程挖掘</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/11/云工作流引擎设计感想与计划/" rel="prev">云工作流引擎设计感想与计划</a>
+              <a href="/2016/01/11/云工作流负载均衡器简述/" rel="prev">云工作流负载均衡器简述</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/15/书单（在读与已读）持续更新/" rel="next">书单（在读与已读）持续更新</a>
+              <a href="/2015/07/15/YAWL仿真过程/" rel="next">YAWL仿真过程</a>
             
           </div>
         </div>
@@ -341,8 +237,8 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/07/15/YAWL仿真过程/"
-                       data-title="YAWL仿真过程" data-url="http://yoursite.com/2015/07/15/YAWL仿真过程/">
+                  <div class="ds-thread" data-thread-key="2016/01/11/云工作流引擎设计感想与计划/"
+                       data-title="云工作流引擎设计感想与计划" data-url="http://yoursite.com/2016/01/11/云工作流引擎设计感想与计划/">
                   </div>
                 
               </div>
@@ -434,7 +330,7 @@ YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.YAW
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总体流程"><span class="nav-number">2.</span> <span class="nav-text">总体流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体流程"><span class="nav-number">3.</span> <span class="nav-text">具体流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">4.</span> <span class="nav-text">问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、概念简介"><span class="nav-number">1.</span> <span class="nav-text">一、概念简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、项目简述"><span class="nav-number">2.</span> <span class="nav-text">二、项目简述</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
