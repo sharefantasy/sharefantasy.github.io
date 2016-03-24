@@ -26,7 +26,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="解题报告," />
 
 
 
@@ -35,46 +35,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="准备学习JavaEE，一点点入坑的话可以从这里开始吧。
-JavaEE基础
-
-Servlet Servlet相对来说比较简单，也就一个HttpServlet类再加上容器配置(tomcat, web.xml)的事情，重点在于了解ServletConfig和ServletContext的用法和关系，把param和attribute了解通透比较重要。
-JSP
-JSTL
-
-基础框架与组件
-
-Spring
-S">
+<meta name="description" content="问题描述　　给出有向无环的流程图，和完成任务的时间，还有其中一个任务，求最短完成该任务的时间。
+方案　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。
+代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495">
 <meta property="og:type" content="article">
-<meta property="og:title" content="轻量级JavaEE组件路线">
-<meta property="og:url" content="http://yoursite.com/2016/01/28/轻量级JavaEE组件路线/index.html">
+<meta property="og:title" content="sicily 1308. Dependencies among J">
+<meta property="og:url" content="http://yoursite.com/2016/03/24/sicily-1308-Dependencies-among-J/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="准备学习JavaEE，一点点入坑的话可以从这里开始吧。
-JavaEE基础
-
-Servlet Servlet相对来说比较简单，也就一个HttpServlet类再加上容器配置(tomcat, web.xml)的事情，重点在于了解ServletConfig和ServletContext的用法和关系，把param和attribute了解通透比较重要。
-JSP
-JSTL
-
-基础框架与组件
-
-Spring
-S">
-<meta property="og:updated_time" content="2016-01-30T08:00:35.734Z">
+<meta property="og:description" content="问题描述　　给出有向无环的流程图，和完成任务的时间，还有其中一个任务，求最短完成该任务的时间。
+方案　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。
+代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495">
+<meta property="og:updated_time" content="2016-03-24T08:10:36.412Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="轻量级JavaEE组件路线">
-<meta name="twitter:description" content="准备学习JavaEE，一点点入坑的话可以从这里开始吧。
-JavaEE基础
-
-Servlet Servlet相对来说比较简单，也就一个HttpServlet类再加上容器配置(tomcat, web.xml)的事情，重点在于了解ServletConfig和ServletContext的用法和关系，把param和attribute了解通透比较重要。
-JSP
-JSTL
-
-基础框架与组件
-
-Spring
-S">
+<meta name="twitter:title" content="sicily 1308. Dependencies among J">
+<meta name="twitter:description" content="问题描述　　给出有向无环的流程图，和完成任务的时间，还有其中一个任务，求最短完成该任务的时间。
+方案　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。
+代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -84,7 +60,7 @@ S">
   };
 </script>
 
-    <title> 轻量级JavaEE组件路线 // 飲雲齋 </title>
+    <title> sicily 1308. Dependencies among J // 飲雲齋 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -187,7 +163,7 @@ S">
           
           
             
-              轻量级JavaEE组件路线
+              sicily 1308. Dependencies among J
             
           
         </h1>
@@ -196,8 +172,8 @@ S">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-01-28T10:51:46+08:00" content="2016-01-28">
-            2016-01-28
+          <time itemprop="dateCreated" datetime="2016-03-24T16:01:54+08:00" content="2016-03-24">
+            2016-03-24
           </time>
         </span>
 
@@ -207,8 +183,8 @@ S">
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/01/28/轻量级JavaEE组件路线/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/28/轻量级JavaEE组件路线/" itemprop="commentsCount"></span>
+              <a href="/2016/03/24/sicily-1308-Dependencies-among-J/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/sicily-1308-Dependencies-among-J/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -222,50 +198,32 @@ S">
       
 
       
-        <span itemprop="articleBody"><p>　　准备学习JavaEE，一点点入坑的话可以从这里开始吧。</p>
-<p>JavaEE基础</p>
-<ol>
-<li>Servlet<br> Servlet相对来说比较简单，也就一个HttpServlet类再加上容器配置(tomcat, web.xml)的事情，重点在于了解ServletConfig和ServletContext的用法和关系，把param和attribute了解通透比较重要。</li>
-<li>JSP</li>
-<li>JSTL</li>
-</ol>
-<p>基础框架与组件</p>
-<ol>
-<li>Spring</li>
-<li>SpringMVC</li>
-<li>Hibernate</li>
-<li>Spring Web flow</li>
-</ol>
-<p>准备分析源码的软件</p>
-<ol>
-<li>YAWL</li>
-<li>Tomcat</li>
-<li>Hibernate</li>
-<li>Spring</li>
-</ol>
-<p>开发辅助工具</p>
-<ol>
-<li>maven</li>
-<li>git</li>
-</ol>
-</span>
+        <span itemprop="articleBody"><h2 id="问题描述">问题描述</h2><p>　　给出有向无环的流程图，和完成任务的时间，还有其中一个任务，求最短完成该任务的时间。</p>
+<h2 id="方案">方案</h2><p>　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。</p>
+<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;sstream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">		<span class="keyword">int</span> n,m;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">		m--;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; edges(n);</span><br><span class="line">		<span class="keyword">int</span>* time = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">		<span class="built_in">string</span> line;</span><br><span class="line">		<span class="built_in">stringstream</span> buff;</span><br><span class="line">		getline(<span class="built_in">cin</span>, line);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">			buff.clear();</span><br><span class="line">			getline(<span class="built_in">cin</span>, line);</span><br><span class="line">			buff &lt;&lt; line;</span><br><span class="line">			buff &gt;&gt; time[i];</span><br><span class="line">			<span class="keyword">int</span> dep;</span><br><span class="line">			<span class="keyword">while</span> (buff &gt;&gt; dep)&#123;</span><br><span class="line">				edges[i].push_back(dep - <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span>* visited = <span class="keyword">new</span> <span class="keyword">bool</span>[n];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">			visited[i] = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">queue</span>;</span><br><span class="line">		<span class="built_in">queue</span>.push(m);</span><br><span class="line">		<span class="keyword">while</span> (!<span class="built_in">queue</span>.empty())&#123;</span><br><span class="line">			<span class="keyword">int</span> cur = <span class="built_in">queue</span>.front();</span><br><span class="line">			visited[cur] = <span class="keyword">true</span>;</span><br><span class="line">			<span class="built_in">queue</span>.pop();</span><br><span class="line">			<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = edges[cur].begin(); i != edges[cur].end(); i++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (!visited[*i])&#123;</span><br><span class="line">					<span class="built_in">queue</span>.push(*i);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (visited[i])</span><br><span class="line">				result += time[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; result &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/解题报告/" rel="tag">#解题报告</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/24/sicily-1155-Can-I-Post-the-lette/" rel="prev">sicily 1155.Can I Post the lette</a>
+              <a href="/2016/03/24/sicily-1424-奖金/" rel="prev">sicily 1424. 奖金</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/26/模型定义与算法设计/" rel="next">模型定义与算法设计</a>
+              <a href="/2016/03/24/sicily-1940-Ordering-Tasks/" rel="next">sicily 1940. Ordering Tasks</a>
             
           </div>
         </div>
@@ -291,8 +249,8 @@ S">
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2016/01/28/轻量级JavaEE组件路线/"
-                       data-title="轻量级JavaEE组件路线" data-url="http://yoursite.com/2016/01/28/轻量级JavaEE组件路线/">
+                  <div class="ds-thread" data-thread-key="2016/03/24/sicily-1308-Dependencies-among-J/"
+                       data-title="sicily 1308. Dependencies among J" data-url="http://yoursite.com/2016/03/24/sicily-1308-Dependencies-among-J/">
                   </div>
                 
               </div>
@@ -384,7 +342,7 @@ S">
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案"><span class="nav-number">2.</span> <span class="nav-text">方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

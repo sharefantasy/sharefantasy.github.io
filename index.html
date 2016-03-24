@@ -158,6 +158,151 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/24/sicily-1424-奖金/" itemprop="url">
+                sicily 1424. 奖金
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-24T18:15:34+08:00" content="2016-03-24">
+            2016-03-24
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/24/sicily-1424-奖金/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/sicily-1424-奖金/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="问题描述">问题描述</h2><p>　　给定点数(n)和边数(m)，和m个偏序关系{(a,b)，其中a &gt; b}，求每个点的层数（从0开始）之和，再加上100*n.如果有环则输出错误。 （题目写得这么应用题，简单翻译下好了）</p>
+<h2 id="方案描述">方案描述</h2><p>　　就是简单的拓扑排序，用广搜记录一下层数就好。但要注意此题可能会有环，所以在搜索的过程中，要先判断是否有环。这次的方案是记录一个后驱图，然后记录每个点的前驱个数。每次访问到一个点就把它后驱的点前驱数-1，再把它放进下层队列。要注意的是有环的时候，肯定会出现访问队列为空但点还没访问完的情况。这就是好的判定条件。<br>　　顺便吐槽一下这垃圾的test case，根本一点用都没有。在下文写出我自己做的test case.</p>
+<h2 id="测试样例">测试样例</h2><blockquote>
+<p>sample 1<br>input<br>6 9<br>2 1<br>3 1<br>3 2<br>4 2<br>5 3<br>5 4<br>5 2<br>6 4<br>6 5<br>output<br>612</p>
+<p>sample 2<br>input<br>3 3<br>3 1<br>2 1<br>1 3<br>output<br>Poor Xed</p>
+<p>sample 3<br>input<br>4 4<br>2 1<br>3 2<br>2 3<br>2 4<br>output<br>Poor Xed</p>
+</blockquote>
+<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;memory.h&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sets</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; edges, <span class="keyword">int</span>* in, <span class="keyword">const</span> <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q1;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q2;</span><br><span class="line">	<span class="keyword">bool</span>* visited = <span class="keyword">new</span> <span class="keyword">bool</span>[n];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		visited[i] = <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (in[i] == <span class="number">0</span>)&#123;</span><br><span class="line">			q1.push(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (q1.empty())</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> layer = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;* curq = &amp;q1;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;* nextq = &amp;q2;</span><br><span class="line">	<span class="keyword">while</span> (!curq-&gt;empty() || !nextq-&gt;empty())&#123;</span><br><span class="line">		sum += layer * curq-&gt;size();</span><br><span class="line">		<span class="keyword">while</span> (!curq-&gt;empty())&#123;</span><br><span class="line">			<span class="keyword">int</span> cur = curq-&gt;front();</span><br><span class="line">			visited[cur] = <span class="keyword">true</span>;</span><br><span class="line">			curq-&gt;pop();</span><br><span class="line">			<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = edges[cur].begin(); i != edges[cur].end(); i++)&#123;</span><br><span class="line">				in[*i]--;</span><br><span class="line">				<span class="keyword">if</span> (in[*i] == <span class="number">0</span>)&#123;</span><br><span class="line">					nextq-&gt;push(*i);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (in[*i] &lt; <span class="number">0</span>)&#123;</span><br><span class="line">					<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		layer++;</span><br><span class="line">		<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;* tmp = curq;</span><br><span class="line">		curq = nextq;</span><br><span class="line">		nextq = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (visited[i] == <span class="keyword">false</span>)</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, e;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; e;</span><br><span class="line">	<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; edges(n);</span><br><span class="line">	<span class="keyword">int</span>* in = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">	<span class="built_in">memset</span>(in, <span class="number">0</span>, n * <span class="keyword">sizeof</span>(in));</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> a, b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt;	a &gt;&gt; b;</span><br><span class="line">		<span class="keyword">if</span> (a == b)&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"Poor Xed"</span> &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		edges[b-<span class="number">1</span>].push_back(a-<span class="number">1</span>);</span><br><span class="line">		in[a - <span class="number">1</span>]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> sum = sets(edges, in, n);</span><br><span class="line">	<span class="keyword">if</span> (sum == -<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Poor Xed"</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; sum + <span class="number">100</span> * n &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/03/24/sicily-1308-Dependencies-among-J/" itemprop="url">
+                sicily 1308. Dependencies among J
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-24T16:01:54+08:00" content="2016-03-24">
+            2016-03-24
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/24/sicily-1308-Dependencies-among-J/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/sicily-1308-Dependencies-among-J/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="问题描述">问题描述</h2><p>　　给出有向无环的流程图，和完成任务的时间，还有其中一个任务，求最短完成该任务的时间。</p>
+<h2 id="方案">方案</h2><p>　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。</p>
+<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;sstream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">		<span class="keyword">int</span> n,m;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">		m--;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; edges(n);</span><br><span class="line">		<span class="keyword">int</span>* time = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">		<span class="built_in">string</span> line;</span><br><span class="line">		<span class="built_in">stringstream</span> buff;</span><br><span class="line">		getline(<span class="built_in">cin</span>, line);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">			buff.clear();</span><br><span class="line">			getline(<span class="built_in">cin</span>, line);</span><br><span class="line">			buff &lt;&lt; line;</span><br><span class="line">			buff &gt;&gt; time[i];</span><br><span class="line">			<span class="keyword">int</span> dep;</span><br><span class="line">			<span class="keyword">while</span> (buff &gt;&gt; dep)&#123;</span><br><span class="line">				edges[i].push_back(dep - <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span>* visited = <span class="keyword">new</span> <span class="keyword">bool</span>[n];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">			visited[i] = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">queue</span>;</span><br><span class="line">		<span class="built_in">queue</span>.push(m);</span><br><span class="line">		<span class="keyword">while</span> (!<span class="built_in">queue</span>.empty())&#123;</span><br><span class="line">			<span class="keyword">int</span> cur = <span class="built_in">queue</span>.front();</span><br><span class="line">			visited[cur] = <span class="keyword">true</span>;</span><br><span class="line">			<span class="built_in">queue</span>.pop();</span><br><span class="line">			<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = edges[cur].begin(); i != edges[cur].end(); i++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (!visited[*i])&#123;</span><br><span class="line">					<span class="built_in">queue</span>.push(*i);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (visited[i])</span><br><span class="line">				result += time[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; result &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/24/sicily-1940-Ordering-Tasks/" itemprop="url">
                 sicily 1940. Ordering Tasks
               </a>
@@ -802,87 +947,13 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/15/书单（在读与已读）持续更新/" itemprop="url">
-                书单（在读与已读）持续更新
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-07-15T13:33:34+08:00" content="2015-07-15">
-            2015-07-15
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/07/15/书单（在读与已读）持续更新/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/15/书单（在读与已读）持续更新/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>—— 截至2015年7月15日 ——</p>
-<p>　　上一次更新是5月底，现在都快7月中了。这段时间大大小小的事情挺多的，似乎也没那么多心情看书。正好趁着打算开始写技术博客，顺便做个书单更新，然后将书单放到这边来凑个数。<br>　　顺带一提，上次说的隐藏主题，是现代化和后现代化。本来打算看完这几本就写个简单的读后感，但真想下手的时候真是完全没头绪，大概题目还是太大了。另外，我也没经历过那个旧世界，新世界对我来说太过熟悉，甚至到已经没法感知它的存在了，这认识的偏差让我有点难下手。还是等多累积些阅读经历再说吧。</p>
-<h2 id="2015年7月15日">2015年7月15日</h2><h3 id="象与骑象人"><strong>象与骑象人</strong></h3><p><img src="http://g-ec4.images-amazon.com/images/G/28/BOOK-Catalog/annaww1/B009SJFMG6_01_AMZN.jpg" alt="象与骑象人"></p>
-<blockquote>
-<p>　　简单的入门级积极心理学科普，有说身心关系，重点是本我和超我的战争。学会如何使两者共同合作，了解“神圣”对人格的影响。光看介绍鸡汤味挺浓的，不过里面大部分是数据和实验堆出来的结论，感觉这种认真的调研才能给人踏踏实实的安全感和可靠感，比一般只说结论和调动情绪的鸡汤好多了。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/15/书单（在读与已读）持续更新/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+  </nav>
+
 
             </div>
 
@@ -915,7 +986,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
