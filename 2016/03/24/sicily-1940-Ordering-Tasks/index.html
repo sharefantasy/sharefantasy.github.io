@@ -26,7 +26,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="解题报告," />
 
 
 
@@ -35,31 +35,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="云工作流管理器核心功能
-提供引擎端的容错、管理、数据收集功能
-发布租户级管理服务（CURD）
-负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口
-OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取
-物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
+<meta name="description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。
+方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。
+代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云工作流负载均衡器简述">
-<meta property="og:url" content="http://yoursite.com/2016/01/11/云工作流负载均衡器简述/index.html">
+<meta property="og:title" content="sicily 1940. Ordering Tasks">
+<meta property="og:url" content="http://yoursite.com/2016/03/24/sicily-1940-Ordering-Tasks/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="云工作流管理器核心功能
-提供引擎端的容错、管理、数据收集功能
-发布租户级管理服务（CURD）
-负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口
-OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取
-物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
-<meta property="og:updated_time" content="2016-01-11T17:30:58.567Z">
+<meta property="og:description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。
+方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。
+代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849">
+<meta property="og:updated_time" content="2016-03-24T06:57:37.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="云工作流负载均衡器简述">
-<meta name="twitter:description" content="云工作流管理器核心功能
-提供引擎端的容错、管理、数据收集功能
-发布租户级管理服务（CURD）
-负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口
-OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取
-物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
+<meta name="twitter:title" content="sicily 1940. Ordering Tasks">
+<meta name="twitter:description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。
+方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。
+代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -69,7 +60,7 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
   };
 </script>
 
-    <title> 云工作流负载均衡器简述 // 飲雲齋 </title>
+    <title> sicily 1940. Ordering Tasks // 飲雲齋 </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -172,7 +163,7 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
           
           
             
-              云工作流负载均衡器简述
+              sicily 1940. Ordering Tasks
             
           
         </h1>
@@ -181,8 +172,8 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-01-11T17:44:16+08:00" content="2016-01-11">
-            2016-01-11
+          <time itemprop="dateCreated" datetime="2016-03-24T15:50:42+08:00" content="2016-03-24">
+            2016-03-24
           </time>
         </span>
 
@@ -192,8 +183,8 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/01/11/云工作流负载均衡器简述/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/云工作流负载均衡器简述/" itemprop="commentsCount"></span>
+              <a href="/2016/03/24/sicily-1940-Ordering-Tasks/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/sicily-1940-Ordering-Tasks/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -207,44 +198,30 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
       
 
       
-        <span itemprop="articleBody"><h1 id="云工作流管理器">云工作流管理器</h1><h2 id="核心功能">核心功能</h2><ol>
-<li>提供引擎端的容错、管理、数据收集功能</li>
-<li>发布租户级管理服务（CURD）</li>
-<li>负载均衡策略管理<br> 3.1. 负载均衡算法<br> 3.2. 负载均衡算法框架、接口</li>
-<li>OpenStack接口设计与控制<br> 4.1. 动态迁移<br> 4.2. 迁移监视<br> 4.3. host状态监视、用量获取</li>
-<li>物理机能力测试<br> 5.1. 单核能力判定<br> 5.2. 多核能力判定<br> 5.3. 能力变化曲线与阈值<br> 5.4. 自动测试<br> 5.5. 接入云管理器</li>
-</ol>
-<h2 id="管理与呈现">管理与呈现</h2><ol>
-<li>云管理器内部结构<br> 1.1. 租户、物理机层次的工作流引擎usage<br> 1.2. 动态显示usage变化</li>
-<li>迁移进度<br> 2.1. 迁移列表<br> 2.2. 迁移时间表，预计时间<br> 2.3. 迁移数据呈现</li>
-<li>物理机状态<br> 3.1. VM数目<br> 3.2. 每台VM的历史速度数据<br> 3.3. 剩余能力</li>
-</ol>
-<h2 id="配置">配置</h2><ol>
-<li>实际配置<br> 1.1. 物理机、虚拟机加载<br> 1.2. 调度算法冷/热加载<br> 1.3. 配置及实际环境检测</li>
-<li>虚拟配置<br> 2.1. 虚拟环境生成<br> 2.2. 仿真测试</li>
-</ol>
-<h2 id="测试">测试</h2><ol>
-<li>功能测试<br> 1.1. </li>
-<li>压力测试</li>
-</ol>
-<h1 id="算法设计与实验">算法设计与实验</h1><h1 id="对比实验设计">对比实验设计</h1></span>
+        <span itemprop="articleBody"><h2 id="问题描述">问题描述</h2><p>　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。</p>
+<h2 id="方案">方案</h2><p>　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。</p>
+<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line">	<span class="keyword">while</span> (a--)&#123;</span><br><span class="line">		<span class="keyword">int</span> ns, es;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;ns, &amp;es);</span><br><span class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; chain(ns);</span><br><span class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; pre_chain(ns);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; es; i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> start, tail;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;start, &amp;tail);</span><br><span class="line">			start--;</span><br><span class="line">			tail--;</span><br><span class="line">			chain[start].push_back(tail);</span><br><span class="line">			pre_chain[tail].push_back(start);</span><br><span class="line">		&#125;</span><br><span class="line">		priority_queue&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; nq;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ns; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (pre_chain[i].size() == <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">char</span> s[<span class="number">10</span>];</span><br><span class="line">				<span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, i);</span><br><span class="line">				nq.push(s);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span>* visited = <span class="keyword">new</span> <span class="keyword">bool</span>[ns];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ns; i++)&#123;</span><br><span class="line">			visited[i] = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">		<span class="keyword">while</span> (!nq.empty())&#123;</span><br><span class="line">			<span class="built_in">string</span> s = nq.top();</span><br><span class="line">			<span class="keyword">int</span> next;</span><br><span class="line">			<span class="built_in">sscanf</span>(s.c_str(), <span class="string">"%d"</span>, &amp;next);</span><br><span class="line">			nq.pop();</span><br><span class="line">			res.push_back(next);</span><br><span class="line">			visited[next] = <span class="keyword">true</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = chain[next].begin(); i != chain[next].end(); i++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (visited[*i])</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">bool</span> flag = <span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator j = pre_chain[*i].begin(); j != pre_chain[*i].end(); j++)&#123;</span><br><span class="line">					<span class="keyword">if</span> (!visited[*j])&#123;</span><br><span class="line">						flag = <span class="keyword">false</span>;</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (flag)&#123;</span><br><span class="line">					<span class="keyword">char</span> s[<span class="number">10</span>];</span><br><span class="line">					<span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, *i);</span><br><span class="line">					nq.push(s);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>, res[i] + <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/解题报告/" rel="tag">#解题报告</a>
+          
+        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/26/模型定义与算法设计/" rel="prev">模型定义与算法设计</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/11/云工作流引擎设计感想与计划/" rel="next">云工作流引擎设计感想与计划</a>
+              <a href="/2016/03/24/sicily-1936-Knight-Moves/" rel="next">sicily 1936.Knight Moves</a>
             
           </div>
         </div>
@@ -270,8 +247,8 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2016/01/11/云工作流负载均衡器简述/"
-                       data-title="云工作流负载均衡器简述" data-url="http://yoursite.com/2016/01/11/云工作流负载均衡器简述/">
+                  <div class="ds-thread" data-thread-key="2016/03/24/sicily-1940-Ordering-Tasks/"
+                       data-title="sicily 1940. Ordering Tasks" data-url="http://yoursite.com/2016/03/24/sicily-1940-Ordering-Tasks/">
                   </div>
                 
               </div>
@@ -363,7 +340,7 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#云工作流管理器"><span class="nav-number">1.</span> <span class="nav-text">云工作流管理器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心功能"><span class="nav-number">1.1.</span> <span class="nav-text">核心功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理与呈现"><span class="nav-number">1.2.</span> <span class="nav-text">管理与呈现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.3.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法设计与实验"><span class="nav-number">2.</span> <span class="nav-text">算法设计与实验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比实验设计"><span class="nav-number">3.</span> <span class="nav-text">对比实验设计</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案"><span class="nav-number">2.</span> <span class="nav-text">方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
