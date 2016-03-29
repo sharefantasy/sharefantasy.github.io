@@ -108,10 +108,10 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-archives"></i> <br />
-            归档
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
           </a>
         </li>
       
@@ -120,6 +120,14 @@
           <a href="/tags" rel="section">
             <i class="menu-item-icon icon-tags"></i> <br />
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
           </a>
         </li>
       
@@ -146,6 +154,111 @@
             <div id="content" class="content">
                 
   <section id="posts" class="posts-expand">
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/15/YAWL仿真过程/" itemprop="url">
+                YAWL仿真过程
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-15T15:49:32+08:00" content="2015-07-15">
+            2015-07-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/研究笔记/" itemprop="url" rel="index"><span itemprop="name">研究笔记</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/07/15/YAWL仿真过程/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/15/YAWL仿真过程/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="工具">工具</h1><ul>
+<li>必须：<ol>
+<li>ProM 5.2(6.3功能不明，暂不使用）</li>
+<li>CPN Tools </li>
+<li>ProM import framework（简称PIF）</li>
+</ol>
+</li>
+<li><p>可选：</p>
+<ol>
+<li>YAWL（设计时用）</li>
+</ol>
+<p>YAWL仿真工具架构上分为3个部分，分别是YAWL，ProM和CPN Tools.<br>YAWL用于设计、定义流程模型和组织模型，和记录工作流引擎目前状态；<br>ProM把yawl net翻译成petri net，并使用历史数据或者仿真数据进行流程挖掘、分析。<br>CPN Tools导入CPN并进行仿真，生成仿真记录。</p>
+</li>
+</ul>
+<h1 id="总体流程">总体流程</h1><ol>
+<li>准备好流程模型、组织模型</li>
+<li>使用ProM的Merge Simulation Models把前两者合并，并转化为HLpetrinet</li>
+<li>使用ProM的Export to CPN Tools 2.0将HLpetrinet转化成CPN，并设置各仿真参数</li>
+<li>使用CPN Tools打开CPN文件，设定case数，跑仿真</li>
+<li>使用PIF把仿真记录转换成mxml文件，使用ProM打开并做分析挖掘。</li>
+<li>调整模型</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/15/YAWL仿真过程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -264,21 +377,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">1</span>
+            <a href="/categories">
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
