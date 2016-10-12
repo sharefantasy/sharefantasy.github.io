@@ -166,6 +166,345 @@
           
           
             
+              <a class="post-title-link" href="/2016/01/28/轻量级JavaEE组件路线/" itemprop="url">
+                轻量级JavaEE组件路线
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-28T10:51:46+08:00" content="2016-01-28">
+            2016-01-28
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/28/轻量级JavaEE组件路线/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/28/轻量级JavaEE组件路线/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>　　准备学习JavaEE，一点点入坑的话可以从这里开始吧。</p>
+<p>JavaEE基础</p>
+<ol>
+<li>Servlet<br> Servlet相对来说比较简单，也就一个HttpServlet类再加上容器配置(tomcat, web.xml)的事情，重点在于了解ServletConfig和ServletContext的用法和关系，把param和attribute了解通透比较重要。</li>
+<li>JSP</li>
+<li>JSTL</li>
+</ol>
+<p>基础框架与组件</p>
+<ol>
+<li>Spring</li>
+<li>SpringMVC</li>
+<li>Hibernate</li>
+<li>Spring Web flow</li>
+</ol>
+<p>准备分析源码的软件</p>
+<ol>
+<li>YAWL</li>
+<li>Tomcat</li>
+<li>Hibernate</li>
+<li>Spring</li>
+</ol>
+<p>开发辅助工具</p>
+<ol>
+<li>maven<br> 如果仅仅是使用maven，那么只要学到</li>
+<li>git</li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/01/26/模型定义与算法设计/" itemprop="url">
+                模型定义与算法设计
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-26T17:51:44+08:00" content="2016-01-26">
+            2016-01-26
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/26/模型定义与算法设计/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/模型定义与算法设计/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>一、实验环境<br>1.环境<br>工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素<br>模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述<br>时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+</p>
+<ol>
+<li>时间单位<br>总周期： 集群开始运行到结束的总时间<br>结算周期：租户合约的结算单位周期，所有统计数据的总时间均为一个结算周期，结算周期过后所有数据清零。<br>操作周期：集群调整空间配置的时间，每个操作周期判断并实行负载均衡<br>心跳周期：集群收集统计数据的单位时长</li>
+</ol>
+<p>二、引擎<br>1、操作定义<br>请求： 环境中要求一次工作流服务的过程<br>派发： 接受一个请求生成workitem并指定worklist的过程<br>引擎： 工程环境中运行的代码，产生派发的工具，可以是工作流引擎，或封装了工作流引擎的VM/容器，模型环境中则是（宿主参数，自身状态-&gt;派发速度）函数，生成引擎需要考虑以下几个因素：（有无排队机制，有无速度限制，有无速度负反馈机制）<br>宿主： 引擎所在的物理机</p>
+<p>2.指标定义<br>请求速度： 单个时槽中的请求数量<br>请求总数： 整个时槽轴上的请求数量<br>派发速度： 单个时槽中的派发数量<br>派发总数： 整个时槽轴上的派发数量</p>
+<p>二、租户<br>1.限制<br>所有租户都在总周期的0时刻上线并统一在总周期结束后下线，不考虑中途插入，不考虑多层SLA，不考虑SLA renegotiation。违约租户惩罚统一，引擎迁移成本不计，分配到租户的引擎数为先验计算，不可增减。<br>可能改进：租户插入/早退，更改，惩罚成本差异，迁移成本计入模型。</p>
+<ol>
+<li>指标定义<br>违约时长：结算周期中，不满足租户SLO速度的心跳时槽之和<br>单人违约率 = 违约时长 / 结算周期</li>
+</ol>
+<p>3.SLA定义<br>SLO速度：结算周期中，约定的最低引擎派发速度<br>最高故障比例：单人违约率的约定最大值</p>
+<p>4.运维过程<br>已违约租户 = 结算周期内，单人违约率已超过最高故障比例的租户<br>集群违约比例 = 已违约租户数 / 总租户数</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/26/模型定义与算法设计/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/01/11/云工作流负载均衡器简述/" itemprop="url">
+                云工作流负载均衡器简述
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-11T17:44:16+08:00" content="2016-01-11">
+            2016-01-11
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/11/云工作流负载均衡器简述/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/云工作流负载均衡器简述/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="云工作流管理器">云工作流管理器</h1><h2 id="核心功能">核心功能</h2><ol>
+<li>提供引擎端的容错、管理、数据收集功能</li>
+<li>发布租户级管理服务（CURD）</li>
+<li>负载均衡策略管理<br> 3.1. 负载均衡算法<br> 3.2. 负载均衡算法框架、接口</li>
+<li>OpenStack接口设计与控制<br> 4.1. 动态迁移<br> 4.2. 迁移监视<br> 4.3. host状态监视、用量获取</li>
+<li>物理机能力测试<br> 5.1. 单核能力判定<br> 5.2. 多核能力判定<br> 5.3. 能力变化曲线与阈值<br> 5.4. 自动测试<br> 5.5. 接入云管理器</li>
+</ol>
+<h2 id="管理与呈现">管理与呈现</h2><ol>
+<li>云管理器内部结构<br> 1.1. 租户、物理机层次的工作流引擎usage<br> 1.2. 动态显示usage变化</li>
+<li>迁移进度<br> 2.1. 迁移列表<br> 2.2. 迁移时间表，预计时间<br> 2.3. 迁移数据呈现</li>
+<li>物理机状态<br> 3.1. VM数目<br> 3.2. 每台VM的历史速度数据<br> 3.3. 剩余能力</li>
+</ol>
+<h2 id="配置">配置</h2><ol>
+<li>实际配置<br> 1.1. 物理机、虚拟机加载<br> 1.2. 调度算法冷/热加载<br> 1.3. 配置及实际环境检测</li>
+<li>虚拟配置<br> 2.1. 虚拟环境生成<br> 2.2. 仿真测试</li>
+</ol>
+<h2 id="测试">测试</h2><ol>
+<li>功能测试<br> 1.1. </li>
+<li>压力测试</li>
+</ol>
+<h1 id="算法设计与实验">算法设计与实验</h1><h1 id="对比实验设计">对比实验设计</h1></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/01/11/云工作流引擎设计感想与计划/" itemprop="url">
+                云工作流引擎设计感想与计划
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-11T11:31:02+08:00" content="2016-01-11">
+            2016-01-11
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/01/11/云工作流引擎设计感想与计划/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/11/云工作流引擎设计感想与计划/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="一、概念简介">一、概念简介</h1><p>　　工作流：业务过程的部分或整体在计算机应用环境下的自动化。<br>　　云计算：基于互联网的相关服务的增加、使用和交付模式，通常涉及通过互联网来提供动态易扩展且经常是虚拟化的资源。另外云计算是一种按使用量付费的模式，这种模式提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池（资源包括网络、服务器、存储、应用软件、服务），这些资源能够被快速提供，只需投入很少的管理工作，或与服务供应商进行很少的交互。<br>　　云工作流：按照云计算的定义，根据工作流引擎的性能、资源使用量计费，提供多租户、有分级的工作流引擎的PaaS服务。通常铺设在云或网格平台上，以分布式引擎的方式部署提高并行化以及高可用性保障，并以虚拟化技术和接口技术模拟传统集中式业务引擎，另外通过工作流性能统计、预测租户对各种资源的使用量，进行计费。云工作流目的不在于使用分布式系统集中提高性能，而是为用户分摊维护成本。另外，云工作流也有另一种定义，被称为“云之上”工作流，即研究如何通过组合云环境中的服务，构建合理高效可靠的业务流程实践。相对应的本项目被称为“云之中”工作流。“云之上”并非本项目的研究方向。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/11/云工作流引擎设计感想与计划/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/15/YAWL仿真过程/" itemprop="url">
                 YAWL仿真过程
               </a>
@@ -377,21 +716,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
