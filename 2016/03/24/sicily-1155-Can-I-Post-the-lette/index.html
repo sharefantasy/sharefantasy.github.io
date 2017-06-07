@@ -3,7 +3,7 @@
 <head>
     
 
-<meta charset="UTF-8"/>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -35,19 +35,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="问题描述　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter.
-方法　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。">
+<meta name="description" content="问题描述　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter. 方法　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。">
+<meta name="keywords" content="解题报告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sicily 1155.Can I Post the lette">
 <meta property="og:url" content="http://yoursite.com/2016/03/24/sicily-1155-Can-I-Post-the-lette/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="问题描述　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter.
-方法　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。">
+<meta property="og:description" content="问题描述　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter. 方法　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。">
 <meta property="og:updated_time" content="2016-03-24T10:36:12.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sicily 1155.Can I Post the lette">
-<meta name="twitter:description" content="问题描述　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter.
-方法　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。">
+<meta name="twitter:description" content="问题描述　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter. 方法　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,10 +55,10 @@
   };
 </script>
 
-    <title> sicily 1155.Can I Post the lette // 飲雲齋 </title>
+    <title> sicily 1155.Can I Post the lette // 飲雲齋 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<!--[if lte IE 8]>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -205,7 +203,7 @@
       
         <span itemprop="articleBody"><h2 id="问题描述">问题描述</h2><p>　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter.</p>
 <h2 id="方法">方法</h2><p>　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。<br><a id="more"></a></p>
-<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stack&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">struct</span> Node&#123;</span><br><span class="line">	<span class="keyword">int</span> v;</span><br><span class="line">	Node* n;</span><br><span class="line">	Node(<span class="keyword">int</span> v, Node* n) :v(v),n(n)&#123;&#125;;</span><br><span class="line">	Node(<span class="keyword">int</span> v) :v(v), n(NULL)&#123;&#125;;</span><br><span class="line">	~Node()&#123;</span><br><span class="line">		Node* ptr = n;</span><br><span class="line">		<span class="keyword">while</span> (ptr != NULL)&#123;</span><br><span class="line">			Node* cur = ptr;</span><br><span class="line">			ptr = ptr-&gt;n;</span><br><span class="line">			<span class="keyword">delete</span> cur;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; roads, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">stack</span>;</span><br><span class="line">	<span class="built_in">stack</span>.push(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">while</span> (!<span class="built_in">stack</span>.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> cur = <span class="built_in">stack</span>.top();</span><br><span class="line">		<span class="keyword">if</span> (cur == n - <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		<span class="built_in">stack</span>.pop();</span><br><span class="line">		<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::const_iterator i = (roads[cur]).begin(); </span><br><span class="line">					i != (roads[cur]).end(); i++)&#123;</span><br><span class="line">			<span class="built_in">stack</span>.push(*i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">		<span class="keyword">int</span> ns;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; ns;</span><br><span class="line">		<span class="keyword">if</span> (ns == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">int</span> es;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; es;</span><br><span class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; roads(ns);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; es; i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> s, e;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; e;</span><br><span class="line">			roads[s].push_back(e);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (find(roads, ns))&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"I can post the letter"</span> &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"I can't post the letter"</span> &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></div><div class="line">	<span class="keyword">int</span> v;</div><div class="line">	Node* n;</div><div class="line">	Node(<span class="keyword">int</span> v, Node* n) :v(v),n(n)&#123;&#125;;</div><div class="line">	Node(<span class="keyword">int</span> v) :v(v), n(<span class="literal">NULL</span>)&#123;&#125;;</div><div class="line">	~Node()&#123;</div><div class="line">		Node* ptr = n;</div><div class="line">		<span class="keyword">while</span> (ptr != <span class="literal">NULL</span>)&#123;</div><div class="line">			Node* cur = ptr;</div><div class="line">			ptr = ptr-&gt;n;</div><div class="line">			<span class="keyword">delete</span> cur;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; roads, <span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">stack</span>;</div><div class="line">	<span class="built_in">stack</span>.push(<span class="number">0</span>);</div><div class="line">	<span class="keyword">while</span> (!<span class="built_in">stack</span>.empty())&#123;</div><div class="line">		<span class="keyword">int</span> cur = <span class="built_in">stack</span>.top();</div><div class="line">		<span class="keyword">if</span> (cur == n - <span class="number">1</span>)</div><div class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		<span class="built_in">stack</span>.pop();</div><div class="line">		<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::const_iterator i = (roads[cur]).begin(); </div><div class="line">					i != (roads[cur]).end(); i++)&#123;</div><div class="line">			<span class="built_in">stack</span>.push(*i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">while</span> (<span class="literal">true</span>)&#123;</div><div class="line">		<span class="keyword">int</span> ns;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; ns;</div><div class="line">		<span class="keyword">if</span> (ns == <span class="number">0</span>)</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">int</span> es;</div><div class="line">		<span class="built_in">cin</span> &gt;&gt; es;</div><div class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; roads(ns);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; es; i++)&#123;</div><div class="line">			<span class="keyword">int</span> s, e;</div><div class="line">			<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; e;</div><div class="line">			roads[s].push_back(e);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (find(roads, ns))&#123;</div><div class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"I can post the letter"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"I can't post the letter"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -295,7 +293,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -309,7 +307,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -365,7 +363,7 @@
             <div class="copyright" >
   
   &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
@@ -597,6 +595,23 @@
             effect: "fadeIn"
         });
     });
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

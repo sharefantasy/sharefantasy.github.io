@@ -3,7 +3,7 @@
 <head>
     
 
-<meta charset="UTF-8"/>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -35,31 +35,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="云工作流管理器核心功能
-提供引擎端的容错、管理、数据收集功能
-发布租户级管理服务（CURD）
-负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口
-OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取
-物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
+<meta name="description" content="云工作流管理器核心功能 提供引擎端的容错、管理、数据收集功能 发布租户级管理服务（CURD） 负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口 OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取 物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="云工作流负载均衡器简述">
 <meta property="og:url" content="http://yoursite.com/2016/01/11/云工作流负载均衡器简述/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="云工作流管理器核心功能
-提供引擎端的容错、管理、数据收集功能
-发布租户级管理服务（CURD）
-负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口
-OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取
-物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
+<meta property="og:description" content="云工作流管理器核心功能 提供引擎端的容错、管理、数据收集功能 发布租户级管理服务（CURD） 负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口 OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取 物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
 <meta property="og:updated_time" content="2016-01-11T17:30:58.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="云工作流负载均衡器简述">
-<meta name="twitter:description" content="云工作流管理器核心功能
-提供引擎端的容错、管理、数据收集功能
-发布租户级管理服务（CURD）
-负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口
-OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取
-物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
+<meta name="twitter:description" content="云工作流管理器核心功能 提供引擎端的容错、管理、数据收集功能 发布租户级管理服务（CURD） 负载均衡策略管理 3.1. 负载均衡算法 3.2. 负载均衡算法框架、接口 OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状态监视、用量获取 物理机能力测试 5.1. 单核能力判定 5.2. 多核能力判定 5.3. 能力变化曲线与阈值 5.4. 自动测试 5.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -69,10 +54,10 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
   };
 </script>
 
-    <title> 云工作流负载均衡器简述 // 飲雲齋 </title>
+    <title> 云工作流负载均衡器简述 // 飲雲齋 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<!--[if lte IE 8]>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -319,7 +304,7 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -333,7 +318,7 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -389,7 +374,7 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
             <div class="copyright" >
   
   &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
@@ -621,6 +606,23 @@ OpenStack接口设计与控制 4.1. 动态迁移 4.2. 迁移监视 4.3. host状�
             effect: "fadeIn"
         });
     });
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

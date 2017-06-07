@@ -3,7 +3,7 @@
 <head>
     
 
-<meta charset="UTF-8"/>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -35,15 +35,12 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="飲雲齋">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="飲雲齋">
-<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -53,10 +50,10 @@
   };
 </script>
 
-    <title> 飲雲齋 </title>
+    <title> 飲雲齋 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<!--[if lte IE 8]>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -166,6 +163,163 @@
           
           
             
+              <a class="post-title-link" href="/2017/06/07/自制Python-IoC框架时的得失/" itemprop="url">
+                自制Python IoC框架时的得失
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-06-07T11:48:11+08:00" content="2017-06-07">
+            2017-06-07
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2017/06/07/自制Python-IoC框架时的得失/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/07/自制Python-IoC框架时的得失/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>　　项目的来源是<a href="https://app.yinxiang.com/shard/s36/nl/9766859/59b9539e-0741-45b6-9635-c214992f4ce2" target="_blank" rel="external">量化交易框架</a>，使用了Python开发。因为受Java影响，想在开发的过程中加入IoC设计，试图减少类之间的依赖，用名称获取实例。结果没有达到使用Spring时提高开发效率的效果，暂时发现有以下几个问题。</p>
+<ol>
+<li>开发时失去代码推断</li>
+<li>无法在Injector成员的初始化过程中使用已定义的Injector成员(即不能自举)</li>
+<li>定义成员时，不能引入其包</li>
+<li>并发时的效果存疑。</li>
+</ol>
+<p>（有几点还需要验证）</p>
+<p>　　Python的动态类型本身就很复杂，可以直接把类存进对象中，而且调用十分自由，不拘束于类本身。而且prototype的类型用IoC反而不方便，因为在新建对象时很可能也要传参，还不如直接调用类来得舒服。所以关键在于singleton的对象。那么实际上只需要找个位置把所有全局对象定义好放在一边即可。</p>
+<p>　　如果真的需要使用IoC模式，用singleton对象代替注入器。只要在一开始找个地方把singleton内的对象定义了就好。prototype类型用IoC则极其不方便，不如直接调用。如果确实想做到接口一样的感觉，那么应该使用prototype对象。即在对象值中存入待初始化的类。</p>
+<p>　　至于IoC内的自举，现在则交给python自己完成即可。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/07/自制Python-IoC框架时的得失/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2016/12/21/Server-Consolidation-with-Minimal-SLA-Violations/" itemprop="url">
+                Server Consolidation with Minimal SLA Violations
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-12-21T10:43:05+08:00" content="2016-12-21">
+            2016-12-21
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/12/21/Server-Consolidation-with-Minimal-SLA-Violations/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/21/Server-Consolidation-with-Minimal-SLA-Violations/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="Server_Consolidation_with_Minimal_SLA_Violations">Server Consolidation with Minimal SLA Violations</h1><p>[TOC]</p>
+<h2 id="作者信息">作者信息</h2><p>2016 Computational Intelligence In Data Mining, Cidm, Vol 2<br>Patel, C. A.　   Shah, J. S.<br></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/21/Server-Consolidation-with-Minimal-SLA-Violations/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/10/12/sicily-1146-采药/" itemprop="url">
                 sicily-1146-采药
               </a>
@@ -216,7 +370,7 @@
       
         
           <h2 id="问题描述">问题描述</h2><p>　　给定一系列物品的价值和代价，以及能接受的最高代价，求最高价值。标准0-1背包问题。</p>
-<h2 id="方案">方案</h2><p>　　　　对于背包问题，可问的问题是，在给定i个物品和j的总代价时，最高价值是多少？<br>    要使用动态规划，首先证明背包问题具有动态子结构和重叠子问题性质。<br>    使用数学归纳法，可得：<br>    设 f(i, j) 为在前i件物品中j代价里最大价值的方案，w[i]和v[i]为第i项物品的代价及价值，则有<br>    f(0,0) = 0，显然成立<br>    当 f(i, j) 成立，<br>    ①考虑 f(i+1,j)<br>    　　f(i+1,j) = max(f(i, j), f(i+1, j - w[i]) + v[i]);<br>    　　不难看出有重叠子问题，且无后效性。<br>    ②考虑 f(i, j+1)<br>　　　　f(i, j+1) = max(f(i, j), f(i, j+1 - w[i]) + v[i]);<br>　　　　形式上与f(i,j)区别不大<br>    问题得证，且可得上述状态转移方程。<br>
+<h2 id="方案">方案</h2><p>　　　　对于背包问题，可问的问题是，在给定i个物品和j的总代价时，最高价值是多少？<br>    要使用动态规划，首先证明背包问题具有动态子结构和重叠子问题性质。<br>    使用数学归纳法，可得：<br>    设 f(i, j) 为在前i件物品中j代价里最大价值的方案，w[i]和v[i]为第i项物品的代价及价值，则有<br>    f(0,0) = 0，显然成立<br>    当 f(i, j) 成立，<br>    ①考虑 f(i+1,j)<br>    　　f(i+1,j) = max(f(i, j), f(i+1, j - w[i]) + v[i]);<br>    　　不难看出有重叠子问题，且无后效性。<br>    ②考虑 f(i, j+1)<br>　　　　f(i, j+1) = max(f(i, j), f(i, j+1 - w[i]) + v[i]);<br>　　　　形式上与f(i,j)区别不大<br>    问题得证，且可得上述状态转移方程。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/12/sicily-1146-采药/#more" rel="contents">
               阅读全文 &raquo;
@@ -300,7 +454,7 @@
 
       
         
-          <p>　　在网上看到一个博客，关于Linux工程师应该能回答的问题，看完以后感觉醍醐灌顶。现在转载到我博客上，我每看懂能回答一个问题，就写一篇对应文章，包括看懂这个问题需要的知识，此问题会扩展到什么知识领域等，定期更新。先挖个坑。<br>一、linux和os:<br>1、命令：netstat tcpdump ipcs ipcrm  这四个命令的熟练掌握程度基本上能体现实际开发和调试程序的经验<br>2、cpu 内存 硬盘 等等与系统性能调试相关的命令必须熟练掌握，设置修改权限 tcp网络状态查看 各进程状态 抓包相关等相关命令 必须熟练掌握<br>3、awk sed需掌握<br>4、共享内存的使用实现原理、然后共享内存段被映射进进程空间之后，存在于进程空间的什么位置？共享内存段最大限制是多少？<br>5、c++进程内存空间分布（注意各部分的内存地址谁高谁低，注意栈从高道低分配，堆从低到高分配）<br>6、ELF是什么？其大小与程序中全局变量的是否初始化有什么关系（注意.bss段）<br>7、使用过哪些进程间通讯机制，并详细说明<br>8、makefile编写，虽然比较基础，但是会被问到<br>9、gdb调试相关的经验，会被问到<br>10、如何定位内存泄露？<br>
+          <p>　　在网上看到一个博客，关于Linux工程师应该能回答的问题，看完以后感觉醍醐灌顶。现在转载到我博客上，我每看懂能回答一个问题，就写一篇对应文章，包括看懂这个问题需要的知识，此问题会扩展到什么知识领域等，定期更新。先挖个坑。<br>一、linux和os:<br>1、命令：netstat tcpdump ipcs ipcrm  这四个命令的熟练掌握程度基本上能体现实际开发和调试程序的经验<br>2、cpu 内存 硬盘 等等与系统性能调试相关的命令必须熟练掌握，设置修改权限 tcp网络状态查看 各进程状态 抓包相关等相关命令 必须熟练掌握<br>3、awk sed需掌握<br>4、共享内存的使用实现原理、然后共享内存段被映射进进程空间之后，存在于进程空间的什么位置？共享内存段最大限制是多少？<br>5、c++进程内存空间分布（注意各部分的内存地址谁高谁低，注意栈从高道低分配，堆从低到高分配）<br>6、ELF是什么？其大小与程序中全局变量的是否初始化有什么关系（注意.bss段）<br>7、使用过哪些进程间通讯机制，并详细说明<br>8、makefile编写，虽然比较基础，但是会被问到<br>9、gdb调试相关的经验，会被问到<br>10、如何定位内存泄露？<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/15/Linux工程师应该能回答的问题/#more" rel="contents">
               阅读全文 &raquo;
@@ -544,7 +698,7 @@
       
         
           <h2 id="问题描述">问题描述</h2><p>　　给出一个最多100个节点的图，判断它是不是森林，是的话输出它的最大深度和最大宽度，不是就输出“INVALID”.</p>
-<h2 id="方案">方案</h2><p>　　非常简单的题，可用dfs做，把所有入度为0的节点放进第一层，记录访问状态，如果重复访问则是有环。最后要检查是否所有节点都访问了，防止出现无法进入的环。开始我用了BFS但一直出错，还不知道原因，先放着有空再试。<br>
+<h2 id="方案">方案</h2><p>　　非常简单的题，可用dfs做，把所有入度为0的节点放进第一层，记录访问状态，如果重复访问则是有环。最后要检查是否所有节点都访问了，防止出现无法进入的环。开始我用了BFS但一直出错，还不知道原因，先放着有空再试。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/29/sicily-1034-Forest/#more" rel="contents">
               阅读全文 &raquo;
@@ -703,7 +857,7 @@
       
         
           <h2 id="问题描述">问题描述</h2><p>　　给出有向无环的流程图，和完成任务的时间，还有其中一个任务，求最短完成该任务的时间。</p>
-<h2 id="方案">方案</h2><p>　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。<br>
+<h2 id="方案">方案</h2><p>　　照旧bfs，维护一个前驱图，把给定结束点放进去直到所有前驱任务都搜索完为止。此题麻烦点在输入格式有点难读取上。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/24/sicily-1308-Dependencies-among-J/#more" rel="contents">
               阅读全文 &raquo;
@@ -788,168 +942,9 @@
       
         
           <h2 id="问题描述">问题描述</h2><p>　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。</p>
-<h2 id="方案">方案</h2><p>　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。<br>
+<h2 id="方案">方案</h2><p>　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/24/sicily-1940-Ordering-Tasks/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/24/sicily-1936-Knight-Moves/" itemprop="url">
-                sicily 1936.Knight Moves
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-24T15:42:26+08:00" content="2016-03-24">
-            2016-03-24
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/解题报告/" itemprop="url" rel="index"><span itemprop="name">解题报告</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/24/sicily-1936-Knight-Moves/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/sicily-1936-Knight-Moves/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="问题描述">问题描述</h2><p>　　国际象棋的马的移动问题，给出初始结束两个点，求出从初始到结束的最小步数。</p>
-<h2 id="方法">方法</h2><p>　　还是用的bfs方法，因为正好bfs中搜索的层数就是马的步数，求最小步数非常合适。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/24/sicily-1936-Knight-Moves/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2016/03/24/sicily-1155-Can-I-Post-the-lette/" itemprop="url">
-                sicily 1155.Can I Post the lette
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2016-03-24T15:23:10+08:00" content="2016-03-24">
-            2016-03-24
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2016/03/24/sicily-1155-Can-I-Post-the-lette/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/sicily-1155-Can-I-Post-the-lette/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="问题描述">问题描述</h2><p>　　给出n个点，一个起始点(0)和终止点（n-1），以及点之间的单向边，求是否可达。可达就输出I can post the letter，否则输出I can’t post the letter.</p>
-<h2 id="方法">方法</h2><p>　　题目较水，用bfs或dfs都可。不过别忘了记录已访问节点，否则会超时或超出空间。这次用bfs的方法，也偷懒用了stl，不过实际上自己实现个稀疏矩阵也不坏。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/24/sicily-1155-Can-I-Post-the-lette/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1010,7 +1005,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1024,7 +1019,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1069,7 +1064,7 @@
             <div class="copyright" >
   
   &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
@@ -1183,6 +1178,6 @@
             effect: "fadeIn"
         });
     });
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

@@ -35,16 +35,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="一、实验环境1.环境工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+  时间单位总周期： 集群开始运行到结束的总时间结算周期：租户合约的结算单位周期，所有统计数据的总时间均为一个结算周期，结算周期过后所有数">
+<meta name="description" content="项目的来源是量化交易框架，使用了Python开发。因为受Java影响，想在开发的过程中加入IoC设计，试图减少类之间的依赖，用名称获取实例。结果没有达到使用Spring时提高开发效率的效果，暂时发现有以下几个问题。  开发时失去代码推断 无法在Injector成员的初始化过程中使用已定义的Injector成员(即不能自举) 定义成员时，不能引入其包 并发时的效果存疑。  （有几点还需要验证）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模型定义与算法设计">
-<meta property="og:url" content="http://yoursite.com/2016/01/26/模型定义与算法设计/index.html">
+<meta property="og:title" content="自制Python IoC框架时的得失">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/自制Python-IoC框架时的得失/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="一、实验环境1.环境工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+  时间单位总周期： 集群开始运行到结束的总时间结算周期：租户合约的结算单位周期，所有统计数据的总时间均为一个结算周期，结算周期过后所有数">
-<meta property="og:updated_time" content="2016-01-28T03:37:59.207Z">
+<meta property="og:description" content="项目的来源是量化交易框架，使用了Python开发。因为受Java影响，想在开发的过程中加入IoC设计，试图减少类之间的依赖，用名称获取实例。结果没有达到使用Spring时提高开发效率的效果，暂时发现有以下几个问题。  开发时失去代码推断 无法在Injector成员的初始化过程中使用已定义的Injector成员(即不能自举) 定义成员时，不能引入其包 并发时的效果存疑。  （有几点还需要验证）">
+<meta property="og:updated_time" content="2017-06-07T05:04:47.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模型定义与算法设计">
-<meta name="twitter:description" content="一、实验环境1.环境工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+  时间单位总周期： 集群开始运行到结束的总时间结算周期：租户合约的结算单位周期，所有统计数据的总时间均为一个结算周期，结算周期过后所有数">
+<meta name="twitter:title" content="自制Python IoC框架时的得失">
+<meta name="twitter:description" content="项目的来源是量化交易框架，使用了Python开发。因为受Java影响，想在开发的过程中加入IoC设计，试图减少类之间的依赖，用名称获取实例。结果没有达到使用Spring时提高开发效率的效果，暂时发现有以下几个问题。  开发时失去代码推断 无法在Injector成员的初始化过程中使用已定义的Injector成员(即不能自举) 定义成员时，不能引入其包 并发时的效果存疑。  （有几点还需要验证）">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -54,7 +54,7 @@
   };
 </script>
 
-    <title> 模型定义与算法设计 // 飲雲齋 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 自制Python IoC框架时的得失 // 飲雲齋 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]>
@@ -165,7 +165,7 @@
           
           
             
-              模型定义与算法设计
+              自制Python IoC框架时的得失
             
           
         </h1>
@@ -174,8 +174,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-01-26T17:51:44+08:00" content="2016-01-26">
-            2016-01-26
+          <time itemprop="dateCreated" datetime="2017-06-07T11:48:11+08:00" content="2017-06-07">
+            2017-06-07
           </time>
         </span>
 
@@ -185,8 +185,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/01/26/模型定义与算法设计/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/模型定义与算法设计/" itemprop="commentsCount"></span>
+              <a href="/2017/06/07/自制Python-IoC框架时的得失/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/07/自制Python-IoC框架时的得失/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -200,28 +200,22 @@
       
 
       
-        <span itemprop="articleBody"><p>一、实验环境<br>1.环境<br>工程环境：代码实际运行场景中的环境，具有不确定性和模糊性，可能掺杂其他不确定因素<br>模型环境：抽象后的运行环境，只关注建模重点，忽略细节。难以描述但有重要的地方使用概率密度函数描述<br>时槽： 所有环境、函数中通用的时刻标记，有固定间隔， t ∈ N+</p>
+        <span itemprop="articleBody"><p>　　项目的来源是<a href="https://app.yinxiang.com/shard/s36/nl/9766859/59b9539e-0741-45b6-9635-c214992f4ce2" target="_blank" rel="external">量化交易框架</a>，使用了Python开发。因为受Java影响，想在开发的过程中加入IoC设计，试图减少类之间的依赖，用名称获取实例。结果没有达到使用Spring时提高开发效率的效果，暂时发现有以下几个问题。</p>
 <ol>
-<li>时间单位<br>总周期： 集群开始运行到结束的总时间<br>结算周期：租户合约的结算单位周期，所有统计数据的总时间均为一个结算周期，结算周期过后所有数据清零。<br>操作周期：集群调整空间配置的时间，每个操作周期判断并实行负载均衡<br>心跳周期：集群收集统计数据的单位时长</li>
+<li>开发时失去代码推断</li>
+<li>无法在Injector成员的初始化过程中使用已定义的Injector成员(即不能自举)</li>
+<li>定义成员时，不能引入其包</li>
+<li>并发时的效果存疑。</li>
 </ol>
-<p>二、引擎<br>1、操作定义<br>请求： 环境中要求一次工作流服务的过程<br>派发： 接受一个请求生成workitem并指定worklist的过程<br>引擎： 工程环境中运行的代码，产生派发的工具，可以是工作流引擎，或封装了工作流引擎的VM/容器，模型环境中则是（宿主参数，自身状态-&gt;派发速度）函数，生成引擎需要考虑以下几个因素：（有无排队机制，有无速度限制，有无速度负反馈机制）<br>宿主： 引擎所在的物理机</p>
-<p>2.指标定义<br>请求速度： 单个时槽中的请求数量<br>请求总数： 整个时槽轴上的请求数量<br>派发速度： 单个时槽中的派发数量<br>派发总数： 整个时槽轴上的派发数量</p>
-<p>二、租户<br>1.限制<br>所有租户都在总周期的0时刻上线并统一在总周期结束后下线，不考虑中途插入，不考虑多层SLA，不考虑SLA renegotiation。违约租户惩罚统一，引擎迁移成本不计，分配到租户的引擎数为先验计算，不可增减。<br>可能改进：租户插入/早退，更改，惩罚成本差异，迁移成本计入模型。</p>
-<ol>
-<li>指标定义<br>违约时长：结算周期中，不满足租户SLO速度的心跳时槽之和<br>单人违约率 = 违约时长 / 结算周期</li>
-</ol>
-<p>3.SLA定义<br>SLO速度：结算周期中，约定的最低引擎派发速度<br>最高故障比例：单人违约率的约定最大值</p>
-<p>4.运维过程<br>已违约租户 = 结算周期内，单人违约率已超过最高故障比例的租户<br>集群违约比例 = 已违约租户数 / 总租户数</p>
+<p>（有几点还需要验证）</p>
+<p>　　Python的动态类型本身就很复杂，可以直接把类存进对象中，而且调用十分自由，不拘束于类本身。而且prototype的类型用IoC反而不方便，因为在新建对象时很可能也要传参，还不如直接调用类来得舒服。所以关键在于singleton的对象。那么实际上只需要找个位置把所有全局对象定义好放在一边即可。</p>
+<p>　　如果真的需要使用IoC模式，用singleton对象代替注入器。只要在一开始找个地方把singleton内的对象定义了就好。prototype类型用IoC则极其不方便，不如直接调用。如果确实想做到接口一样的感觉，那么应该使用prototype对象。即在对象值中存入待初始化的类。</p>
+<p>　　至于IoC内的自举，现在则交给python自己完成即可。</p>
 <a id="more"></a>
-<p>5.租户属性<br>固有属性：SLO速度、最高故障比，引擎角色表<br>结算统计属性：是否已违约<br>操作统计属性：结算累积故障时长、操作累积故障时、单机违约率<br>心跳属性：历史时槽数量/速度，现有引擎表</p>
-<p>三、物理机</p>
-<p>1.限制：<br>物理机实际性能受波动影响，最高能力由先验速度测试决定，一般在进入总周期前进行，在总周期中更新需停止服务并重新进行测试。目前物理机承载能力只考虑单机引擎能力以及引擎个数，未加入其他参数。物理机平均给引擎分配性能</p>
-<p>2.操作状态定义<br>服务：物理机为数据中心提供正式工作流服务<br>测试：加载负载测试，生成能力映射。<br>迁移：引擎从一台物理机转移到另一物理机，非瞬时操作，会对两台物理机能力都造成影响。分动态和静态两种。</p>
-<p>3.能力定义<br>引擎数量：当前在物理机上运行的引擎数量<br>单引擎能力：给定引擎数量时，物理机提供给单个引擎的平均最高速度<br>能力映射函数：先验属性， f : 引擎数量 -&gt; 单引擎能力  ，对于每台物理机唯一。可通过测试更新<br>能力迁移修正：进行迁移时物理机性能会出现损耗，需加入考虑。对应为 f’ : 引擎数量 -&gt; 修正后单引擎能力。如果是静态迁移则统一为 f’: 引擎数量 -&gt; 0.<br>迁移时长： 迁移的时间长度<br>费用：总过程中使用该机器的累积花销，单位可以是钱或者能源，或者一个函数<br>单价：单位时间内使用该机器的花销</p>
-<p>4.物理机属性<br>固有属性：能力映射函数（表），迁移修正函数（表），单价<br>操作统计属性：平均迁移时长，现有引擎表<br>结算统计属性：累积费用</p>
-<p>四、数据中心</p>
-<p>操作数据：<br>结算数据：</p>
-</span>
+<p>　　问题在于Python里的对象和类本来就可以自动完成IoC，加入目前的设置反而显得束手束脚。真正需要IoC的部分应该是那些Python无法做的，比如一些常量设置等。如图中的Flask的例子，使用IoC原理的只有路由的配置，hello函数中只带入了”/“这么一个字符串配置。也就是在Python中注入了一种专门用来定义路由规则的正则文法DSL，这种DSL与Python没有关系，也没有上文中因为在配置文件中的循环依赖问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line"><span class="meta">@app.route("/")</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    app.run()</div></pre></td></tr></table></figure>
+<p>　　那么，如果专门定义一种DSL用于做IoC，这样会怎样呢？首先肯定没问题，只要DSL的定义清晰，确实能解决上面的几个问题，现在我也差不多有如下的方案了，但对Python来说则非常多余。Python就是种很好的动态脚本，也支持函数作为对象，下面的语法是Python的阉割版而已，用于作为Java等静态语言的补充倒是可以（说白了下面方案是Spring IoC配置的Json版而已）。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[&#123;</div><div class="line">	<span class="attr">"id"</span>: <span class="string">"id of the element"</span>,</div><div class="line">	<span class="attr">"type"</span> : <span class="string">"name of the element's class, must be callable full name"</span>,</div><div class="line">	<span class="attr">"scope"</span> : <span class="string">"singleton|prototype"</span>,</div><div class="line">	<span class="attr">"init_params"</span>:&#123;</div><div class="line">		<span class="attr">"args"</span>:[<span class="string">"..."</span>,<span class="string">"if it requires injection, denotes with this(id)"</span>], </div><div class="line">		<span class="attr">"kwargs"</span>:&#123;<span class="attr">"..."</span>&#125;</div><div class="line">	&#125;</div><div class="line">&#125;,</div><div class="line"><span class="string">"..."</span></div><div class="line">&#123;</div><div class="line">&#125;]</div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -232,13 +226,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/28/轻量级JavaEE组件路线/" rel="prev">轻量级JavaEE组件路线</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/11/云工作流负载均衡器简述/" rel="next">云工作流负载均衡器简述</a>
+              <a href="/2016/12/21/Server-Consolidation-with-Minimal-SLA-Violations/" rel="next">Server Consolidation with Minimal SLA Violations</a>
             
           </div>
         </div>
@@ -264,8 +256,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2016/01/26/模型定义与算法设计/"
-                       data-title="模型定义与算法设计" data-url="http://yoursite.com/2016/01/26/模型定义与算法设计/">
+                  <div class="ds-thread" data-thread-key="2017/06/07/自制Python-IoC框架时的得失/"
+                       data-title="自制Python IoC框架时的得失" data-url="http://yoursite.com/2017/06/07/自制Python-IoC框架时的得失/">
                   </div>
                 
               </div>

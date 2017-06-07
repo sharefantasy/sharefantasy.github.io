@@ -3,7 +3,7 @@
 <head>
     
 
-<meta charset="UTF-8"/>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -35,19 +35,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。
-方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。">
+<meta name="description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。 方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。">
+<meta name="keywords" content="sicily,图算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sicily 1940. Ordering Tasks">
 <meta property="og:url" content="http://yoursite.com/2016/03/24/sicily-1940-Ordering-Tasks/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。
-方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。">
+<meta property="og:description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。 方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。">
 <meta property="og:updated_time" content="2016-03-29T07:36:03.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sicily 1940. Ordering Tasks">
-<meta name="twitter:description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。
-方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。">
+<meta name="twitter:description" content="问题描述　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。 方案　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,10 +55,10 @@
   };
 </script>
 
-    <title> sicily 1940. Ordering Tasks // 飲雲齋 </title>
+    <title> sicily 1940. Ordering Tasks // 飲雲齋 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<!--[if lte IE 8]>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
       <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
@@ -216,7 +214,7 @@
       
         <span itemprop="articleBody"><h2 id="问题描述">问题描述</h2><p>　　给出一个有向无环的任务流程图，输出字典序最小的执行过程。</p>
 <h2 id="方案">方案</h2><p>　　实际上是一个拓扑排序问题，字典序方面比较麻烦。另外如果维护每个点的前驱表，每次都去读一次，会超时的。只要记录前驱数，访问一次减一就可以了。<br><a id="more"></a></p>
-<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;list&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line">	<span class="keyword">while</span> (a--)&#123;</span><br><span class="line">		<span class="keyword">int</span> ns, es;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;ns, &amp;es);</span><br><span class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; chain(ns);</span><br><span class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; pre_chain(ns);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; es; i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> start, tail;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;start, &amp;tail);</span><br><span class="line">			start--;</span><br><span class="line">			tail--;</span><br><span class="line">			chain[start].push_back(tail);</span><br><span class="line">			pre_chain[tail].push_back(start);</span><br><span class="line">		&#125;</span><br><span class="line">		priority_queue&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; nq;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ns; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (pre_chain[i].size() == <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">char</span> s[<span class="number">10</span>];</span><br><span class="line">				<span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, i);</span><br><span class="line">				nq.push(s);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span>* visited = <span class="keyword">new</span> <span class="keyword">bool</span>[ns];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ns; i++)&#123;</span><br><span class="line">			visited[i] = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">		<span class="keyword">while</span> (!nq.empty())&#123;</span><br><span class="line">			<span class="built_in">string</span> s = nq.top();</span><br><span class="line">			<span class="keyword">int</span> next;</span><br><span class="line">			<span class="built_in">sscanf</span>(s.c_str(), <span class="string">"%d"</span>, &amp;next);</span><br><span class="line">			nq.pop();</span><br><span class="line">			res.push_back(next);</span><br><span class="line">			visited[next] = <span class="keyword">true</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = chain[next].begin(); i != chain[next].end(); i++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (visited[*i])</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">bool</span> flag = <span class="keyword">true</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator j = pre_chain[*i].begin(); j != pre_chain[*i].end(); j++)&#123;</span><br><span class="line">					<span class="keyword">if</span> (!visited[*j])&#123;</span><br><span class="line">						flag = <span class="keyword">false</span>;</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (flag)&#123;</span><br><span class="line">					<span class="keyword">char</span> s[<span class="number">10</span>];</span><br><span class="line">					<span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, *i);</span><br><span class="line">					nq.push(s);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>, res[i] + <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> a;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</div><div class="line">	<span class="keyword">while</span> (a--)&#123;</div><div class="line">		<span class="keyword">int</span> ns, es;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;ns, &amp;es);</div><div class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; chain(ns);</div><div class="line">		<span class="built_in">vector</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt; pre_chain(ns);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; es; i++)&#123;</div><div class="line">			<span class="keyword">int</span> start, tail;</div><div class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;start, &amp;tail);</div><div class="line">			start--;</div><div class="line">			tail--;</div><div class="line">			chain[start].push_back(tail);</div><div class="line">			pre_chain[tail].push_back(start);</div><div class="line">		&#125;</div><div class="line">		priority_queue&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; nq;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ns; i++)&#123;</div><div class="line">			<span class="keyword">if</span> (pre_chain[i].size() == <span class="number">0</span>)&#123;</div><div class="line">				<span class="keyword">char</span> s[<span class="number">10</span>];</div><div class="line">				<span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, i);</div><div class="line">				nq.push(s);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">bool</span>* visited = <span class="keyword">new</span> <span class="keyword">bool</span>[ns];</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ns; i++)&#123;</div><div class="line">			visited[i] = <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</div><div class="line">		<span class="keyword">while</span> (!nq.empty())&#123;</div><div class="line">			<span class="built_in">string</span> s = nq.top();</div><div class="line">			<span class="keyword">int</span> next;</div><div class="line">			<span class="built_in">sscanf</span>(s.c_str(), <span class="string">"%d"</span>, &amp;next);</div><div class="line">			nq.pop();</div><div class="line">			res.push_back(next);</div><div class="line">			visited[next] = <span class="literal">true</span>;</div><div class="line">			<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = chain[next].begin(); i != chain[next].end(); i++)&#123;</div><div class="line">				<span class="keyword">if</span> (visited[*i])</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">				<span class="keyword">for</span> (<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator j = pre_chain[*i].begin(); j != pre_chain[*i].end(); j++)&#123;</div><div class="line">					<span class="keyword">if</span> (!visited[*j])&#123;</div><div class="line">						flag = <span class="literal">false</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (flag)&#123;</div><div class="line">					<span class="keyword">char</span> s[<span class="number">10</span>];</div><div class="line">					<span class="built_in">sprintf</span>(s, <span class="string">"%d"</span>, *i);</div><div class="line">					nq.push(s);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>, res[i] + <span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -308,7 +306,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -322,7 +320,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -378,7 +376,7 @@
             <div class="copyright" >
   
   &copy; &nbsp;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
@@ -610,6 +608,23 @@
             effect: "fadeIn"
         });
     });
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
