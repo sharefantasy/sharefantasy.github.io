@@ -35,17 +35,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Server Consolidation with Minimal SLA Violations[TOC] 作者信息2016 Computational Intelligence In Data Mining, Cidm, Vol 2Patel, C. A.　   Shah, J. S.">
+<meta name="description" content="2016 Computational Intelligence In Data Mining, Cidm, Vol 2Patel, C. A.　   Shah, J. S.">
 <meta name="keywords" content="论文读后感,project:云工作流管理系统设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Server Consolidation with Minimal SLA Violations">
 <meta property="og:url" content="http://yoursite.com/2016/12/21/Server-Consolidation-with-Minimal-SLA-Violations/index.html">
 <meta property="og:site_name" content="飲雲齋">
-<meta property="og:description" content="Server Consolidation with Minimal SLA Violations[TOC] 作者信息2016 Computational Intelligence In Data Mining, Cidm, Vol 2Patel, C. A.　   Shah, J. S.">
-<meta property="og:updated_time" content="2016-12-21T02:50:36.119Z">
+<meta property="og:description" content="2016 Computational Intelligence In Data Mining, Cidm, Vol 2Patel, C. A.　   Shah, J. S.">
+<meta property="og:updated_time" content="2017-06-07T05:32:05.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Server Consolidation with Minimal SLA Violations">
-<meta name="twitter:description" content="Server Consolidation with Minimal SLA Violations[TOC] 作者信息2016 Computational Intelligence In Data Mining, Cidm, Vol 2Patel, C. A.　   Shah, J. S.">
+<meta name="twitter:description" content="2016 Computational Intelligence In Data Mining, Cidm, Vol 2Patel, C. A.　   Shah, J. S.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -201,21 +201,20 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Server_Consolidation_with_Minimal_SLA_Violations">Server Consolidation with Minimal SLA Violations</h1><p>[TOC]</p>
-<h2 id="作者信息">作者信息</h2><p>2016 Computational Intelligence In Data Mining, Cidm, Vol 2<br>Patel, C. A.　   Shah, J. S.<br><a id="more"></a></p>
-<h2 id="提出的约束条件">提出的约束条件</h2><h3 id="术语定义">术语定义</h3><p>$ P = {P<em>1 , P_2 ,….., P_m}  $is set of m physical machines<br>$ P_i^C = $ Total Capacity of $  P_M \; P_i  $ in terms of tuple (RAM, CPU, N/W)<br>$ P_i^U = $ Utilized Capacity of $  P_M \; P_i  $  in terms of tuple (RAM, CPU, N/W)<br>$ V = {V_1, V_2,….., V_n} $ set of n virtual machines in data center<br>$ V_j^R = $ required capacity of $<br> V_M \; V_i  $ terms of tuple (RAM, CPU, N/W)<br>$ M = m × n $ matrix where<br>$ M</em>{ij}  =  \begin{cases} 1&amp; if\;V<em>M  V_j  \text{ is assigned on }P_M  \; P_i\ 0&amp; \text{otherwise} \end{cases} $<br>$ S = {S_1, S_2,….. S_s} $  is a set of SLAs<br>$ th  = $ Threshold defined by user e.g. 80 % (to identify over utilization of host)<br>$ mig</em>{th} = $ Threshold defined by user e.g. 3 (to specify maximum number of allowed migrations for each VM)</p>
-<h3 id="约束方程">约束方程</h3><p>Use minimum number of active PMs</p>
+        <span itemprop="articleBody"><p>2016 Computational Intelligence In Data Mining, Cidm, Vol 2<br>Patel, C. A.　   Shah, J. S.<br><a id="more"></a></p>
+<h2 id="提出的约束条件"><a href="#提出的约束条件" class="headerlink" title="提出的约束条件"></a>提出的约束条件</h2><h3 id="术语定义"><a href="#术语定义" class="headerlink" title="术语定义"></a>术语定义</h3><p>$ P = {P_1 , P_2 ,….., P_m}  $is set of m physical machines<br>$ P_i^C = $ Total Capacity of $  P_M \; P_i  $ in terms of tuple (RAM, CPU, N/W)<br>$ P_i^U = $ Utilized Capacity of $  P_M \; P_i  $  in terms of tuple (RAM, CPU, N/W)<br>$ V = {V_1, V_2,….., V_n} $ set of n virtual machines in data center<br>$ V_j^R = $ required capacity of $<br> V_M \; V_i  $ terms of tuple (RAM, CPU, N/W)<br>$ M = m × n $ matrix where<br>$ M_{ij}  =  \begin{cases} 1&amp; if\;V_M  V_j  \text{ is assigned on }P_M  \; P_i\ 0&amp; \text{otherwise} \end{cases} $<br>$ S = {S_1, S_2,….. S_s} $  is a set of SLAs<br>$ th  = $ Threshold defined by user e.g. 80 % (to identify over utilization of host)<br>$ mig_{th} = $ Threshold defined by user e.g. 3 (to specify maximum number of allowed migrations for each VM)</p>
+<h3 id="约束方程"><a href="#约束方程" class="headerlink" title="约束方程"></a>约束方程</h3><p>Use minimum number of active PMs</p>
 <blockquote>
-<p>$Minimize \; \sum<em>{i=1}^{m}{Y_i} $<br>$Y_i = \begin{cases} 1 &amp; \sum</em>{j=1}^{n}{M_{ij}} \ge 1 \ 0 &amp; \text{Otherwise}  \end{cases} $</p>
+<p>$Minimize \; \sum_{i=1}^{m}{Y_i} $<br>$Y_i = \begin{cases} 1 &amp; \sum_{j=1}^{n}{M_{ij}} \ge 1 \ 0 &amp; \text{Otherwise}  \end{cases} $</p>
 <p>$\text{Constrained by}$</p>
-<p>$ \text{C1:  } \sum<em>{i=1}^{m}M</em>{ij}  = 1,   \; \forall \, V<em>j \in VM $<br>$ \text{C2:  } migrationCount(V_j ) \le mig</em>{th},   \; \forall \, V_j \in VM $</p>
+<p>$ \text{C1:  } \sum_{i=1}^{m}M_{ij}  = 1,   \; \forall \, V_j \in VM $<br>$ \text{C2:  } migrationCount(V_j ) \le mig_{th},   \; \forall \, V_j \in VM $</p>
 </blockquote>
 <p>$\sum_{i=1}^{m}{Y_i}$ represents total number of active servers.<br>Each $Y_i$ is one, if number of hosted VMs on that server is greater than or equal to 1.<br><span style="color:#FF2000">(最小活跃物理服务器)</span></p>
 <p>Constraint <strong>C1</strong> ensures that VM cannot be hosted partially on two different servers.<br><strong>C2</strong> ensures that same performance of same VM is not degraded all time.<br><span style="color:#FF2000">(C1保证每个VM整体放置于同一服务器，C2保证同一VM的迁移次数不高于阈值)</span></p>
-<h2 id="算法实现">算法实现</h2><p> Schedule_VM (Fist fit based approach)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Input: set of VM Requests V, Set of Hosts (PMs) H</div><div class="line">Output: Mapping of requested VMs to Hosts</div><div class="line">Begin</div><div class="line">	For each VM request V i , in V,</div><div class="line">	For each host Hi in H</div><div class="line">	If current load of H i &lt; threshold &amp;&amp; H i has enough resources for V i then</div><div class="line">		Deploy V i on H i</div><div class="line">	Repeat step 2, 3 till V is deployed i</div><div class="line">	If no suitable host found for vi, then display message</div><div class="line">		Repeat step 2–6 till VM request set is empty.</div><div class="line">End</div></pre></td></tr></table></figure></p>
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><p> Schedule_VM (Fist fit based approach)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Input: set of VM Requests V, Set of Hosts (PMs) H</div><div class="line">Output: Mapping of requested VMs to Hosts</div><div class="line">Begin</div><div class="line">	For each VM request V i , in V,</div><div class="line">	For each host Hi in H</div><div class="line">	If current load of H i &lt; threshold &amp;&amp; H i has enough resources for V i then</div><div class="line">		Deploy V i on H i</div><div class="line">	Repeat step 2, 3 till V is deployed i</div><div class="line">	If no suitable host found for vi, then display message</div><div class="line">		Repeat step 2–6 till VM request set is empty.</div><div class="line">End</div></pre></td></tr></table></figure></p>
 <p>Optimize_DC (MMT as selection criteria)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">Input: Set of currently deployed VMs VM_LIST Set of Hosts HOST_LIST</div><div class="line">Current mapping of VMs and PMs</div><div class="line">Output:</div><div class="line">Optimized mapping of VMs and PMs as MIGRATION_MAP</div><div class="line">Begin</div><div class="line">	1. Find over utilized hosts (hosts_overutilized) based on pre defined</div><div class="line">	threshold value</div><div class="line">	2. for each over utilized host,</div><div class="line">		2.1 find VM to migrate based on selection criteria (MMT)</div><div class="line">		2.2 Add VM to MIGRATION _MAP if migration count of that VM is less than   mig_th</div><div class="line">		2.3 Repeat 2.1 and 2.2 till host is not over utilized</div><div class="line">	3. Repeat above step till no host is over utilized</div><div class="line">	4. For each VM in MIGRATION_MAP, find suitable host and complete</div><div class="line">	migration</div><div class="line">	5. Find under-utilized hosts (hosts_underutilized) based on pre defined</div><div class="line">	threshold value</div><div class="line">	6. for each under-utilized host,</div><div class="line">	6.1 Add each currently running VM to MIGRATION _MAP if</div><div class="line">	migration count of that VM is less than mig_th</div><div class="line">	6.2 Repeat 6.1 till host is empty</div><div class="line">	7. Migrate all VMs in MIGRATION_MAP to suitable hosts</div><div class="line">	8. Repeat step 1–7 after each pre defined interval.</div></pre></td></tr></table></figure>
-<h2 id="实验">实验</h2><p><strong>CloudSim</strong> simulator is used to perform experiments. Three parameters were considered in experiments namely: </p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p><strong>CloudSim</strong> simulator is used to perform experiments. Three parameters were considered in experiments namely: </p>
 <ol>
 <li>energy consumption of datacenter</li>
 <li>SLA performance degradation of VMs </li>
@@ -229,7 +228,7 @@
 <li>Max migration per VM mig_th=3</li>
 <li>Workload: Planetlab</li>
 </ul>
-<h2 id="读后感">读后感</h2><p>结论其实是稍显简单的，文章用了一套SLA定义语言对应了租户定义，使得这部分的研究也可以很严谨。最终提出的first-fit和MMA感觉比较简单。如果这也能发那也不算特别复杂。</p>
+<h2 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h2><p>结论其实是稍显简单的，文章用了一套SLA定义语言对应了租户定义，使得这部分的研究也可以很严谨。最终提出的first-fit和MMA感觉比较简单。如果这也能发那也不算特别复杂。</p>
 </span>
       
     </div>
@@ -374,7 +373,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Server_Consolidation_with_Minimal_SLA_Violations"><span class="nav-number">1.</span> <span class="nav-text">Server Consolidation with Minimal SLA Violations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作者信息"><span class="nav-number">1.1.</span> <span class="nav-text">作者信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提出的约束条件"><span class="nav-number">1.2.</span> <span class="nav-text">提出的约束条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#术语定义"><span class="nav-number">1.2.1.</span> <span class="nav-text">术语定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#约束方程"><span class="nav-number">1.2.2.</span> <span class="nav-text">约束方程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-number">1.3.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">1.4.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读后感"><span class="nav-number">1.5.</span> <span class="nav-text">读后感</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#提出的约束条件"><span class="nav-number">1.</span> <span class="nav-text">提出的约束条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#术语定义"><span class="nav-number">1.1.</span> <span class="nav-text">术语定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#约束方程"><span class="nav-number">1.2.</span> <span class="nav-text">约束方程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-number">2.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读后感"><span class="nav-number">4.</span> <span class="nav-text">读后感</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
